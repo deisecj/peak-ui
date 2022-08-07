@@ -1,0 +1,58 @@
+.first-section {
+  background-image: url("../../public/images/top-image.svg");
+  height: 376px;
+  background-size: 100% auto;
+}
+
+.header-section {
+  @apply py-4 px-10;
+}
+
+.title-section {
+  @apply w-72 ml-36 mt-12;
+}
+
+.title-text {
+  color: #F8FAFC;
+  @apply text-6xl font-bold leading-snug;
+}
+
+.sub-title-text {
+  color: #FFFFFF;
+  @apply text-2xl mb-6;
+}
+
+.search-section {
+  width: 40%;
+  @apply mt-10;
+}
+
+.search-item {
+  @apply w-full;
+}
+
+.information-section {
+  margin-top: 50px;
+}
+
+.information-section-item {
+  color: #fff;
+  width: 50%;
+  @apply text-lg;
+  
+}
+
+.third-section {
+  @apply mt-20 py-16;
+  background-color: rgb(255, 255, 255, 0.05);
+}
+
+.rate-section {
+  color: #fff;
+  width: 40%;
+  @apply text-lg;
+}
+
+.rate-section-item {
+  width: 50%;
+}

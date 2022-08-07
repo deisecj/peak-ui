@@ -1,0 +1,18 @@
+.fouth-section {
+  @apply py-20;
+}
+
+.menu-section {
+  width: 40%;
+  @apply mt-10;
+}
+
+.menu-text {
+  color: #94A3B8;
+  @apply py-4 text-sm;
+}
+
+.text-footer {
+  color: #FFFFFF;
+  @apply text-sm;
+}
