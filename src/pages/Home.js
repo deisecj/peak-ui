@@ -5,7 +5,7 @@ import Footer from '../components/footer/Index';
 
 const Home = () => {
   return (
-    <div className="container mx-auto">
+      <div id="home" className="lg:container mx-auto">
       <div className="first-section">
         <div className="header-section">
           <img
@@ -45,7 +45,7 @@ const Home = () => {
                 alt=""
               />
           </div>
-          <div className="rate-section-item mt-16">
+          <div className="rate-section-item lg:mt-16">
             <p className="mb-10 mr-6">Contribute to a growing community and help others reach new heights in their career.</p>
             <button
               type="button"

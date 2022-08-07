@@ -1,5 +1,6 @@
 .first-section {
   background-image: url("../../public/images/top-image.svg");
+  background-repeat: no-repeat; 
   height: 376px;
   background-size: 100% auto;
 }
@@ -9,7 +10,7 @@
 }
 
 .title-section {
-  @apply w-72 ml-36 mt-12;
+  @apply w-72 ml-10 lg:ml-36 mt-12;
 }
 
 .title-text {
@@ -23,8 +24,7 @@
 }
 
 .search-section {
-  width: 40%;
-  @apply mt-10;
+  @apply mt-10 w-5/6 lg:w-2/5;
 }
 
 .search-item {
@@ -49,10 +49,9 @@
 
 .rate-section {
   color: #fff;
-  width: 40%;
-  @apply text-lg;
+  @apply text-lg w-5/6 lg:w-2/5;
 }
 
 .rate-section-item {
-  width: 50%;
+  @apply w-1/2;
 }

@@ -2,7 +2,7 @@ import './Index.css';
 
 const Footer = () => {
   return (
-    <div className="footer">
+    <div className="footer container mx-auto">
       <div className="fouth-section grid justify-items-center">
         <div className="menu-section">
           <ul>
