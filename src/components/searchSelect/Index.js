@@ -72,7 +72,7 @@ const SearchSelect = () => {
         </Combobox.Options>
       )}
 
-      {query != '' && filteredCompanies.length === 0 && (
+      {query !== '' && filteredCompanies.length === 0 && (
         <Combobox.Options
           className="bg-white rounded-md -mb-2 scroll-py-2 overflow-y-auto py-2 text-sm text-gray-800"
         >
