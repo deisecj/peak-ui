@@ -2,10 +2,17 @@ import './Home.css';
 import { StarIcon } from '@heroicons/react/outline';
 import SearchSelect from '../components/searchSelect/Index';
 import Footer from '../components/footer/Index';
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  const handleRateMyEmployer = () => {
+    navigate('/companies/');
+  }
+
   return (
-      <div id="home" className="lg:container mx-auto">
+      <div id="home" className="container mx-auto">
       <div className="first-section">
         <div className="header-section">
           <img
@@ -18,7 +25,7 @@ const Home = () => {
           <h1 className="title-text">REAL. HONEST. VERIFIED.</h1>
         </div>        
       </div>
-      <div className="second-section grid justify-items-center">
+      <div className="second-section mb-28 grid justify-items-center">
         <div className="search-section">
           <div className="">
             <p className="sub-title-text">Explore the companies that interest you.</p>
@@ -48,6 +55,7 @@ const Home = () => {
           <div className="rate-section-item lg:mt-16">
             <p className="mb-10 mr-6">Contribute to a growing community and help others reach new heights in their career.</p>
             <button
+              onClick={handleRateMyEmployer}
               type="button"
               className="mt-5 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >

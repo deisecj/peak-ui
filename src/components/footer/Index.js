@@ -13,7 +13,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="footer-section grid grid-cols-2 justify-items-stretch my-10">
+      <div className="footer-section grid grid-cols-2 justify-items-stretch my-10 ml-40 mr-10">
         <div className="justify-self-start">
           <img
             className=""
