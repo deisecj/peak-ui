@@ -1,10 +1,6 @@
-.fouth-section {
-  
-}
 
 .menu-section {
-  width: 40%;
-  @apply mb-14;
+  @apply mb-14 xl:mx-96 px-20;
 }
 
 .menu-text {
@@ -12,7 +8,11 @@
   @apply py-4 text-sm;
 }
 
-.text-footer {
+.footer-text {
   color: #FFFFFF;
-  @apply text-sm;
+  @apply text-sm mr-12 xl:mr-40;
+}
+
+.footer-logo {
+  @apply w-32 xl:w-44 ml-12 xl:ml-40;
 }
