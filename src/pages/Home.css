@@ -6,16 +6,20 @@
 }
 
 .header-section {
-  @apply py-4 px-10;
+ @apply py-5 ml-40;
 }
 
 .title-section {
-  @apply w-72 ml-10 lg:ml-36 mt-12;
+  @apply w-72 mt-10 ml-64;
 }
 
 .title-text {
   color: #F8FAFC;
-  @apply text-6xl font-bold leading-snug;
+  @apply text-6xl font-bold leading-normal;
+}
+
+.search-section {
+  @apply mt-20 lg:w-2/5 px-4;
 }
 
 .sub-title-text {
@@ -23,27 +27,23 @@
   @apply text-2xl mb-6;
 }
 
-.search-section {
-  @apply mt-10 w-5/6 lg:w-2/5;
-}
-
 .search-item {
   @apply w-full;
 }
 
 .information-section {
-  margin-top: 50px;
+  @apply mt-14;
 }
 
 .information-section-item {
   color: #fff;
   width: 50%;
-  @apply text-lg;
+  @apply text-lg font-normal;
   
 }
 
 .third-section {
-  @apply mt-20 py-16;
+  @apply mb-14;
   background-color: rgb(255, 255, 255, 0.05);
 }
 

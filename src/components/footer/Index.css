@@ -1,10 +1,10 @@
 .fouth-section {
-  @apply py-20;
+  
 }
 
 .menu-section {
   width: 40%;
-  @apply mt-10;
+  @apply mb-14;
 }
 
 .menu-text {
