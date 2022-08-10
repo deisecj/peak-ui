@@ -86,3 +86,7 @@
   color: #fff;
   @apply text-lg sm:text-left text-center sm:mt-0 mt-6 mx-2 sm:mx-0;
 }
+
+.menu-section {
+  @apply hidden sm:block mb-14 xl:mx-96 px-20;
+}

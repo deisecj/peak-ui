@@ -1,9 +1,9 @@
 .footer-content {
-  @apply flex justify-between mx-6 sm:ml-12 xl:ml-40 mb-4 sm:mb-8;
+  @apply flex justify-between mb-4 sm:mt-14 mt-0 sm:mb-8;
 }
 
-.menu-section {
-  @apply hidden sm:block mb-14 xl:mx-96 px-20;
+.footer-section {
+  @apply mx-6 sm:ml-12 xl:ml-40;
 }
 
 .menu-text {

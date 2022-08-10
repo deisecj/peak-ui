@@ -14,7 +14,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const SearchSelect = () => {
+const SearchSelect = ({ className }) => {
   const [query, setQuery] = useState('');
   const navigate = useNavigate();
 
@@ -47,7 +47,7 @@ const SearchSelect = () => {
           aria-hidden="true"
         />
         <Combobox.Input
-          className="h-12 w-full focus:ring-indigo-500 focus:border-indigo-500 rounded-md border-0 bg-gray-100 px-4 py-2.5 pl-11 text-gray-900 placeholder-gray-500 sm:text-sm"
+          className={className}
           placeholder="Search companies"
           onChange={onChangeInput}
         />

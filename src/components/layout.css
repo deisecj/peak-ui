@@ -1,0 +1,31 @@
+.subpage-bg-header {
+  background-color: rgb(255,255,255, 0.05);
+}
+
+.subpage-container {
+  @apply max-w-screen-2xl mx-auto;
+}
+
+.subpage-header {
+  @apply mx-40 py-3;
+}
+
+.subpage-log {
+  @apply w-32 xl:w-44;
+}
+
+.subpage-search-select {
+  @apply h-10 w-full focus:ring-indigo-500 focus:border-indigo-500 rounded-md border-0 bg-gray-100 px-4 py-1 pl-11 text-gray-900 placeholder-gray-500 sm:text-sm;
+}
+
+.subpage-title {
+  @apply mx-64 mt-14 mb-20 text-5xl text-neutral-50 font-bold;
+}
+
+.subpage-menu-section {
+  @apply max-w-3xl mx-auto;
+}
+
+.subpage-footer {
+  @apply mx-40;
+}
