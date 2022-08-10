@@ -1,5 +1,5 @@
-.footer {
-
+.footer-content {
+  @apply flex justify-between mx-6 sm:ml-12 xl:ml-40 mb-4 sm:mb-8;
 }
 
 .menu-section {
@@ -13,9 +13,9 @@
 
 .footer-text {
   color: #FFFFFF;
-  @apply text-sm mr-12 xl:mr-40;
+  @apply text-sm;
 }
 
 .footer-logo {
-  @apply w-32 xl:w-44 ml-12 xl:ml-40;
+  @apply w-32 xl:w-44;
 }
