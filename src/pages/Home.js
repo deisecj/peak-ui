@@ -1,8 +1,16 @@
 import './Home.css';
-import { StarIcon } from '@heroicons/react/outline';
+import { MenuIcon, StarIcon, XIcon } from '@heroicons/react/outline';
 import SearchSelect from '../components/searchSelect/Index';
 import Footer from '../components/footer/Index';
 import { useNavigate } from "react-router-dom";
+import { Disclosure } from '@headlessui/react';
+
+const menu = [
+  { name: 'About' , url: '#' },
+  { name: 'Privacy policy' , url: '#' },
+  { name: 'Terms of use', url: '#' },
+  { name: 'Rating and review guidelines', url: '#' }
+];
 
 const Home = () => {
   const navigate = useNavigate();
@@ -12,18 +20,49 @@ const Home = () => {
   }
 
   return (
-    <div id="home" className="mx-auto max-w-screen-2xl">
+    <div id="home" className="mx-auto max-w-screen-2xl h-full">
       <div className="hero-section">
-        <div className="hero-header">
-          <img
-            className="hero-logo"
-            src="./images/happy-jobs-logo.svg"
-            alt=""
-          />
+      <Disclosure as="header" className="bg-gray-800">
+      {({ open }) => (
+        <>
+        <div className="hero-header-navbar">
+          <div className="hero-header">
+            <img
+              className="hero-logo"
+              src="./images/happy-jobs-logo.svg"
+              alt=""
+            />
+
+            <div className="relative z-10 flex items-center sm:hidden">
+              {/* Mobile menu button */}
+              <Disclosure.Button className="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <span className="sr-only">Open menu</span>
+                {open ? (
+                  <XIcon className="block h-6 w-6" aria-hidden="true" />
+                ) : (
+                  <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                )}
+              </Disclosure.Button>
+            </div>
+          </div>
         </div>
+
+        {/* Mobile menu list*/}
+        <Disclosure.Panel className="navbar-menu">
+            <div className="navbar-menu-content">
+            {menu.map(item => (
+               <Disclosure.Button as="a" href={item.href} className="border-transparent hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                {item.name}
+              </Disclosure.Button>
+              ))}
+            </div>
+          </Disclosure.Panel>
+        </>
+      )}
+      </Disclosure>
         <div className="hero-content">
           <h1 className="title-text">REAL. HONEST. VERIFIED.</h1>
-          <img src="./images/hero-image.svg" className="hero-image"/>
+          <img src="./images/hero-image.svg" className="hero-image" />
         </div>
       </div>
       <div className="explore-section">
@@ -49,7 +88,7 @@ const Home = () => {
           <img src="./images/rate-employer.svg" alt="" className="contribute-image" />
           <div className="rate-section lg:mt-16">
             <p className="mb-10">Contribute to a growing community and help others reach new heights in their career.</p>
-            <button onClick={handleRateMyEmployer} type="button" className="mt-5 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <button onClick={handleRateMyEmployer} type="button" className="mt-5 inline-flex justify-self-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               <StarIcon className="-ml-1 mr-2 h-5 w-5 bg-200" aria-hidden="true" />
               Rate my employer
             </button>

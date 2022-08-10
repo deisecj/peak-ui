@@ -11,7 +11,7 @@ const Footer = () => {
           <li className="menu-text">Rating and review guidelines</li>
         </ul>
       </div>
-      <div className="flex justify-between py-5">
+      <div className="footer-content">
         <img
           className="footer-logo"
           src="./images/happy-jobs-logo.svg"

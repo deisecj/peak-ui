@@ -1,40 +1,57 @@
-.hero-section {
-  background-image: url("../../public/images/hero-bg.svg");
-  background-repeat: no-repeat; 
+@media (min-width: 640px) { 
+  .hero-section {
+    background-image: url("../../public/images/hero-bg.svg");
+    background-repeat: no-repeat; 
+  }
+}
+
+@media (max-width: 639px) {
+  .title-text {
+    letter-spacing: 0.09em;
+  }
+
+  .hero-header-navbar {
+    background-color: rgb(255,255,255, 0.05);
+  }
 }
 
 .hero-logo {
   @apply w-32 xl:w-44;
 }
 
+.navbar-menu {
+  @apply lg:hidden absolute z-50 w-full bg-gray-800 text-white;
+}
+
+.navbar-menu-content {
+  background-color: rgb(255,255,255, 0.05);
+  @apply pt-2 pb-3 space-y-1;
+}
+
 .hero-header {
- @apply py-5 ml-12 xl:ml-40;
+ @apply py-5 mx-6 sm:ml-12 xl:ml-40 flex justify-between;
 }
 
 .hero-content {
-  @apply flex justify-between xl:mx-64 sm:mx-20;
+  @apply flex justify-between xl:mx-64 lg:mx-36 sm:mx-20 sm:mt-0 mt-5 mx-6;
 }
 
 .hero-image {
-  @apply w-56 xl:w-fit;
+  @apply w-56 xl:w-fit hidden sm:block;
 }
 
 .explore-section {
-  @apply mb-28 xl:mx-96 px-20;
+  @apply sm:mb-28 mb-14 sm:mt-20 mt-2 xl:mx-96 lg:mx-36 sm:px-20 px-6;
 }
 
 .title-text {
   color: #F8FAFC;
-  @apply w-72 xl:text-6xl text-4xl font-bold leading-normal xl:leading-normal xl:mt-12;
-}
-
-.search-section {
-  @apply mt-20;
+  @apply xl:w-72 sm:w-56 xl:text-6xl sm:text-4xl text-2xl font-bold xl:leading-normal xl:mt-12;
 }
 
 .sub-title-text {
   color: #FFFFFF;
-  @apply text-2xl mb-6;
+  @apply sm:text-2xl text-base font-normal mb-6;
 }
 
 .search-item {
@@ -42,7 +59,7 @@
 }
 
 .information-section {
-  @apply mt-14;
+  @apply mt-14 hidden sm:flex;
 }
 
 .information-section-item {
@@ -54,18 +71,18 @@
 
 .contribute-section {
   background-color: rgb(255,255,255, 0.05);
-  @apply py-14 mb-14;
+  @apply py-14 mb-14 mx-6 sm:mx-0 rounded-lg sm:rounded-none;
 }
 
 .contribute-content {
-  @apply flex justify-between gap-x-11 xl:mx-96 px-20;
+  @apply sm:flex grid justify-between sm:gap-x-11 xl:mx-96 lg:mx-36 sm:px-20;
 }
 
 .contribute-image {
-  @apply w-40 xl:w-72;
+  @apply w-40 mr-0 sm:mr-12 xl:mr-0 xl:w-72 justify-self-center;
 }
 
 .rate-section {
   color: #fff;
-  @apply text-lg;
+  @apply text-lg sm:text-left text-center sm:mt-0 mt-6 mx-2 sm:mx-0;
 }
