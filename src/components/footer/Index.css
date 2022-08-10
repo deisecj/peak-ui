@@ -1,6 +1,9 @@
+.footer {
+
+}
 
 .menu-section {
-  @apply mb-14 xl:mx-96 px-20;
+  @apply hidden sm:block mb-14 xl:mx-96 px-20;
 }
 
 .menu-text {
