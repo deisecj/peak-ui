@@ -19,8 +19,17 @@
   @apply w-32 xl:w-44;
 }
 
+.navbar-menu {
+  @apply lg:hidden absolute z-50 w-full bg-gray-800 text-white;
+}
+
+.navbar-menu-content {
+  background-color: rgb(255,255,255, 0.05);
+  @apply pt-2 pb-3 space-y-1;
+}
+
 .hero-header {
- @apply py-5 mx-6 sm:ml-12 xl:ml-40;
+ @apply py-5 mx-6 sm:ml-12 xl:ml-40 flex justify-between;
 }
 
 .hero-content {

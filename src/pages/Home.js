@@ -1,8 +1,16 @@
 import './Home.css';
-import { StarIcon } from '@heroicons/react/outline';
+import { MenuIcon, StarIcon, XIcon } from '@heroicons/react/outline';
 import SearchSelect from '../components/searchSelect/Index';
 import Footer from '../components/footer/Index';
 import { useNavigate } from "react-router-dom";
+import { Disclosure } from '@headlessui/react';
+
+const menu = [
+  { name: 'About' , url: '#' },
+  { name: 'Privacy policy' , url: '#' },
+  { name: 'Terms of use', url: '#' },
+  { name: 'Rating and review guidelines', url: '#' }
+];
 
 const Home = () => {
   const navigate = useNavigate();
@@ -14,6 +22,9 @@ const Home = () => {
   return (
     <div id="home" className="mx-auto max-w-screen-2xl h-full">
       <div className="hero-section">
+      <Disclosure as="header" className="bg-gray-800">
+      {({ open }) => (
+        <>
         <div className="hero-header-navbar">
           <div className="hero-header">
             <img
@@ -21,8 +32,34 @@ const Home = () => {
               src="./images/happy-jobs-logo.svg"
               alt=""
             />
+
+            <div className="relative z-10 flex items-center sm:hidden">
+              {/* Mobile menu button */}
+              <Disclosure.Button className="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <span className="sr-only">Open menu</span>
+                {open ? (
+                  <XIcon className="block h-6 w-6" aria-hidden="true" />
+                ) : (
+                  <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                )}
+              </Disclosure.Button>
+            </div>
           </div>
         </div>
+
+        {/* Mobile menu list*/}
+        <Disclosure.Panel className="navbar-menu">
+            <div className="navbar-menu-content">
+            {menu.map(item => (
+               <Disclosure.Button as="a" href={item.href} className="border-transparent hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                {item.name}
+              </Disclosure.Button>
+              ))}
+            </div>
+          </Disclosure.Panel>
+        </>
+      )}
+      </Disclosure>
         <div className="hero-content">
           <h1 className="title-text">REAL. HONEST. VERIFIED.</h1>
           <img src="./images/hero-image.svg" className="hero-image" />
