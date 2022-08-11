@@ -31,5 +31,5 @@
 }
 
 .subpage-main {
-  @apply max-w-3xl mx-auto mb-28 text-neutral-50;
+  @apply max-w-3xl mx-auto mb-24 text-neutral-50;
 }

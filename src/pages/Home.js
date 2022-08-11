@@ -51,7 +51,7 @@ const Home = () => {
         <Disclosure.Panel className="navbar-menu">
             <div className="navbar-menu-content">
             {menu.map(item => (
-               <Disclosure.Button as="a" href={item.href} className="border-transparent hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+               <Disclosure.Button key={`menu-${item.name}`} as="a" href={item.href} className="border-transparent hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
                 {item.name}
               </Disclosure.Button>
               ))}
