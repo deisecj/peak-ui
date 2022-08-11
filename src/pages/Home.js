@@ -1,7 +1,7 @@
 import './Home.css';
 import { MenuIcon, StarIcon, XIcon } from '@heroicons/react/outline';
-import SearchSelect from '../components/searchSelect/Index';
-import Footer from '../components/footer/Index';
+import SearchSelect from '../components/searchSelect';
+import Footer from '../components/footer';
 import { useNavigate } from "react-router-dom";
 import { Disclosure } from '@headlessui/react';
 
@@ -51,7 +51,7 @@ const Home = () => {
         <Disclosure.Panel className="navbar-menu">
             <div className="navbar-menu-content">
             {menu.map(item => (
-               <Disclosure.Button as="a" href={item.href} className="border-transparent hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+               <Disclosure.Button key={`menu-${item.name}`} as="a" href={item.href} className="border-transparent hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
                 {item.name}
               </Disclosure.Button>
               ))}
@@ -71,7 +71,7 @@ const Home = () => {
             <p className="sub-title-text">Explore the companies that interest you.</p>
           </div>
           <div className="search-item">
-            <SearchSelect />
+            <SearchSelect className="h-12 w-full focus:ring-indigo-500 focus:border-indigo-500 rounded-md border-0 bg-gray-100 px-4 py-2.5 pl-11 text-gray-900 placeholder-gray-500 sm:text-sm" />
           </div>
           <div className="information-section flex justify-between gap-x-8">
             <div className="information-section-item">
@@ -95,7 +95,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      <Footer menuClassName="menu-section" />
     </div>
   );
 }
