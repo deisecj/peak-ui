@@ -1,7 +1,6 @@
 import './Company.css';
 import Layout from '../components/layout';
 import { StarIcon } from '@heroicons/react/outline';
-import ReactShowMoreText from 'react-show-more-text';
 import Rating from '../components/rating';
 import RatingItem from '../components/ratingItem';
 import SeeMore from '../components/seeMore';
