@@ -29,3 +29,7 @@
 .subpage-footer {
   @apply mx-40;
 }
+
+.subpage-main {
+  @apply max-w-3xl mx-auto mb-28 text-neutral-50;
+}

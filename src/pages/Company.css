@@ -1,3 +1,7 @@
-.color-text {
-  color: #FAFAFA;
+.company-image {
+  @apply w-72;
+}
+
+.company-name-section {
+  @apply text-3xl font-semibold;
 }

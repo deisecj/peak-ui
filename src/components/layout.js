@@ -37,7 +37,7 @@ const Layout = ({ children }) => {
             <h1>REAL. HONEST. VERIFIED.</h1>
           </div>
         </div>
-        <main className="max-w-3xl mx-auto mb-28">{children}</main>
+        <main className="subpage-main">{children}</main>
         <Footer menuClassName="subpage-menu-section" footerClassName="subpage-footer"/>
       </div>
     </div>
