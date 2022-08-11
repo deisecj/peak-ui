@@ -90,3 +90,7 @@
 .menu-section {
   @apply hidden sm:block mb-14 xl:mx-96 px-20;
 }
+
+.footer-section-page {
+    @apply flex justify-between;
+}
