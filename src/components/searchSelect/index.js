@@ -40,6 +40,7 @@ const SearchSelect = ({ className }) => {
   }
 
   return (
+    <div className="relative">
     <Combobox onChange={handleSelectCompany}>
       <div className="relative">
         <SearchIcon
@@ -54,7 +55,7 @@ const SearchSelect = ({ className }) => {
       </div>
       {filteredCompanies.length > 0 && (
         <Combobox.Options
-          className="bg-white rounded-md -mb-2 max-h-72 scroll-py-2 overflow-y-auto py-2 text-sm text-gray-800"
+          className="absolute w-full bg-white rounded-md -mb-2 max-h-72 scroll-py-2 overflow-y-auto py-2 text-sm text-gray-800"
         >
           {filteredCompanies.map((company) => (
             <Combobox.Option
@@ -74,13 +75,13 @@ const SearchSelect = ({ className }) => {
 
       {query !== '' && filteredCompanies.length === 0 && (
         <Combobox.Options
-          className="bg-white rounded-md -mb-2 scroll-py-2 overflow-y-auto py-2 text-sm text-gray-800"
+          className="absolute w-full bg-white rounded-md -mb-2 scroll-py-2 overflow-y-auto py-2 text-sm text-gray-800"
         >
           <Combobox.Option value={null}>
-            <div className="bg-white py-4 px-4 sm:px-14 grid justify-items-center">
+            <div className="bg-white py-4 px-4 sm:px-6 grid justify-items-center">
               <p className="mt-5 text-sm text-gray-900">Oops... we didn't find any companies that match this search.</p>
               <p className="mt-5 text-sm text-gray-400">Try refining your search or search for another company.</p>
-              <img src="./images/company-not-found.svg" alt="" className="m-10" />
+              <img src="/images/company-not-found.svg" alt="" className="m-10" />
               <button
                 onClick={handleRateMyEmployer}
                 type="button"
@@ -94,6 +95,7 @@ const SearchSelect = ({ className }) => {
         </Combobox.Options>
       )}
     </Combobox>
+    </div>
   )
 }
 

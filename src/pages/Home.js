@@ -95,7 +95,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <Footer menuClassName="menu-section" />
+      <Footer menuClassName="menu-section" footerClassName="footer-section"/>
     </div>
   );
 }
