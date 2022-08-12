@@ -1,8 +1,8 @@
 import Rating from "./rating";
 
-const RatingItem = ({ itemName }) => {
+const RatingItem = ({ itemName, className }) => {
   return (
-    <div className="grid grid-cols-2">
+    <div className={"grid grid-cols-2 " + className}>
       <p className="text-lg font-semibold text-brand-300">{itemName}</p>
       <div className="mt-2 grid justify-end">
         <Rating />
