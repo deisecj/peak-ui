@@ -94,3 +94,7 @@
 .footer-section-page {
     @apply flex justify-between;
 }
+
+.search-icon {
+  @apply pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-gray-400;
+}
