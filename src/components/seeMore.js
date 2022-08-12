@@ -17,10 +17,10 @@ const SeeMore = ({ children }) => {
 
   return (
     <div>
-      <div className="line-clamp-7">
+      <div className="line-clamp-5 xl:line-clamp-7">
         {children}
       </div>
-      <div className="mt-2 text-neutral-400 font-normal italic">
+      <div className="mt-2 text-base xl:text-lg text-neutral-400 font-normal italic">
         <a>See more</a>
       </div>
     </div>

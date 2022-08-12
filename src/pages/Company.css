@@ -3,7 +3,7 @@
 }
 
 .company-name-section {
-  @apply text-3xl font-semibold;
+  @apply text-2xl xl:text-3xl font-semibold;
 }
 
 .text-about-company {
