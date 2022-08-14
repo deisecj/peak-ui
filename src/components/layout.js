@@ -2,21 +2,28 @@ import './layout.css'
 import Footer from './footer';
 import { StarIcon } from '@heroicons/react/outline';
 import SearchSelect from './searchSelect';
+import { useNavigate } from "react-router-dom";
 
 const Layout = ({ children }) => {
+  const navigate = useNavigate();
+
+  const handleRateMyEmployer = () => {
+    navigate('/companies/');
+  }
+
   return (
     <div>
       <div className="subpage-bg-header">
         <div className="subpage-container">
-          <div className="subpage-header flex justify-between">
+          <div className="subpage-header">
             <img
               className="subpage-logo"
               src="/images/happy-jobs-logo.svg"
               alt=""
             />
-            <div className="flex gap-4 xl:gap-10">
+            <div className="subpage-rate-search-section">
               <div>
-                <button type="button" className="inline-flex justify-self-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <button onClick={handleRateMyEmployer} type="button" className="subpage-rate-button">
                   <StarIcon className="-ml-1 mr-2 h-5 w-5 bg-200" aria-hidden="true" />
                   Rate my employer
                 </button>
@@ -29,7 +36,7 @@ const Layout = ({ children }) => {
         </div>
       </div>      
       <div className="subpage-container">
-        <div className="subpage-title flex justify-between">
+        <div className="subpage-title">
           <div>
             <h1>REVIEWS.</h1>
           </div>
