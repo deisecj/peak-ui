@@ -1,19 +1,65 @@
+.company-container {
+  @apply grid grid-cols-2 mb-12 xl:mb-16;
+}
+
+.company-card {
+  @apply justify-start mr-3 xl:mr-0;
+}
+
 .company-image {
-  @apply w-72;
+  @apply w-96;
+}
+
+.link-about-company {
+  color: #94A3B8;
+  @apply italic font-semibold my-2.5;
+}
+
+.company-information-container {
+  @apply justify-end ml-3 xl:ml-24 xl:max-w-sm;
 }
 
 .company-name-section {
-  @apply text-2xl xl:text-3xl font-semibold;
+  @apply text-neutral-50 font-semibold text-2xl xl:text-3xl;
 }
 
-.text-about-company {
-  @apply text-lg font-normal;
+.company-rating {
+  @apply grid grid-cols-2 justify-between mt-4 w-60 xl:w-72;
+}
+
+.company-rating-text {
+  @apply ml-1.5 text-neutral-400 text-xs xl:text-sm;
+}
+
+.company-review-total {
+  @apply text-neutral-400 text-xs xl:text-sm mt-4 mb-24;
+}
+
+.rate-this-company-button {
+  @apply w-60 mt-2 px-4 py-2 inline-flex justify-self-center border border-transparent shadow-sm rounded-md text-base font-semibold text-neutral-900 bg-indigo-300 hover:bg-indigo-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-300;
+}
+
+.icon-button-rate-company {
+  @apply ml-4 mr-1 h-5 w-5 mt-1 bg-indigo-300;
 }
 
 .cultural-characteristics-container {
-  background-color: rgb(255,255,255, 0.05)
+  background-color: rgb(255,255,255, 0.05);
+  @apply rounded-lg py-8 px-3 xl:py-9 xl:px-12;
+}
+
+.title-characteristics {
+  @apply text-2xl xl:text-3xl font-semibold;
 }
 
 .traditional-characteristics-container {
   background-color: rgb(255,255,255, 0.05)
+}
+
+.title-question-section {
+  @apply text-xl xl:text-2xl font-semibold mb-8;
+}
+
+.text-question-section {
+  @apply text-base xl:text-lg font-normal mb-8 max-w-xl;
 }
