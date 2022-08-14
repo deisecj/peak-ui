@@ -7,11 +7,19 @@
 }
 
 .subpage-header {
-  @apply xl:mx-40 mx-12 py-3;
+  @apply flex justify-between xl:mx-40 mx-12 py-3;
 }
 
 .subpage-logo {
   @apply w-32 xl:w-44;
+}
+
+.subpage-rate-search-section {
+  @apply flex gap-4 xl:gap-10;
+}
+
+.subpage-rate-button {
+  @apply inline-flex justify-self-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
 }
 
 .subpage-search-select {
@@ -19,7 +27,7 @@
 }
 
 .subpage-title {
-  @apply mx-20 xl:mx-64 mt-6 xl:mt-14 mb-12 xl:mb-20 text-2xl xl:text-5xl text-neutral-50 font-bold;
+  @apply flex justify-between mx-20 xl:mx-64 mt-6 xl:mt-14 mb-12 xl:mb-20 text-2xl xl:text-5xl text-neutral-50 font-bold;
 }
 
 .subpage-menu-section {

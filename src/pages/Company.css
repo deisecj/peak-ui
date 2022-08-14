@@ -3,20 +3,20 @@
 }
 
 .company-card {
-  @apply justify-start mr-3 xl:mr-0;
+  @apply justify-start mr-4 xl:mr-0;
 }
 
 .company-image {
-  @apply w-96;
+  @apply w-52 xl:w-96;
 }
 
 .link-about-company {
   color: #94A3B8;
-  @apply italic font-semibold my-2.5;
+  @apply italic font-semibold my-3 xl:my-2.5;
 }
 
 .company-information-container {
-  @apply justify-end ml-3 xl:ml-24 xl:max-w-sm;
+  @apply justify-end ml-4 xl:ml-24 xl:max-w-sm;
 }
 
 .company-name-section {
@@ -24,23 +24,23 @@
 }
 
 .company-rating {
-  @apply grid grid-cols-2 justify-between mt-4 w-60 xl:w-72;
+  @apply grid grid-cols-2 justify-between mt-2 xl:mt-4 w-60 xl:w-72;
 }
 
 .company-rating-text {
-  @apply ml-1.5 text-neutral-400 text-xs xl:text-sm;
+  @apply ml-6 xl:ml-1.5 text-neutral-400 text-xs xl:text-sm;
 }
 
 .company-review-total {
-  @apply text-neutral-400 text-xs xl:text-sm mt-4 mb-24;
+  @apply text-neutral-400 text-xs xl:text-sm mt-2 xl:mt-4 mb-6 xl:mb-24;
 }
 
 .rate-this-company-button {
-  @apply w-60 mt-2 px-4 py-2 inline-flex justify-self-center border border-transparent shadow-sm rounded-md text-base font-semibold text-neutral-900 bg-indigo-300 hover:bg-indigo-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-300;
+  @apply w-60 xl:mt-2 px-4 py-2 inline-flex justify-self-center border border-transparent shadow-sm rounded-md text-base font-semibold text-neutral-900 bg-indigo-300 hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-200;
 }
 
 .icon-button-rate-company {
-  @apply ml-4 mr-1 h-5 w-5 mt-1 bg-indigo-300;
+  @apply ml-4 mr-1 h-5 w-5 mt-1;
 }
 
 .cultural-characteristics-container {
