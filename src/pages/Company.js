@@ -68,7 +68,7 @@ const Company = () => {
         <h1 className="title-characteristics">Traditional workplace characteristics</h1>
         <CharacteristicRating ratings={traditionalRatings} />
       </div>
-      <div className="question-company mt-20">
+      <div className="question-company mt-16 sm:mt-20">
         <h1 className="title-question-section">Do you work at IBM North America?</h1>
         <p className="text-question-section">By honestly rating your company, you can help other job seekers.  Our system is completely anoymous after email verification.</p>
         <button type="button" className="rate-this-company-button">
