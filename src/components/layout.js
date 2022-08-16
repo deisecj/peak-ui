@@ -4,6 +4,7 @@ import { StarIcon, XIcon, MenuIcon } from '@heroicons/react/outline';
 import SearchSelect from './searchSelect';
 import { useNavigate } from "react-router-dom";
 import { Disclosure } from '@headlessui/react';
+import { useRef, useState } from 'react';
 
 const menu = [
   { name: 'About' , url: '#' },
@@ -14,9 +15,26 @@ const menu = [
 
 const Layout = ({ children }) => {
   const navigate = useNavigate();
+  const inputSearchRef = useRef();
+  const [subpageSearch, setSubpage] = useState("subpage-search");
+  const [subpageSearchIcon, setSubpageSearchIcon] = useState("subpage-search-icon");
+  const [subpageSearchSelect, setSubpageSearchSelect] = useState("subpage-search-select");
 
   const handleRateMyEmployer = () => {
     navigate('/companies/');
+  }
+
+  const expandInputSearch = () => {
+    setTimeout(() => inputSearchRef.current.focus());
+    setSubpage("subpage-search-expanded");
+    setSubpageSearchIcon("search-icon");
+    setSubpageSearchSelect("subpage-search-select-expanded");
+  }
+  
+  const showNavBarDefault = () => {
+    setSubpage("subpage-search");
+    setSubpageSearchIcon("subpage-search-icon");
+    setSubpageSearchSelect("subpage-search-select");
   }
 
   return (
@@ -43,8 +61,8 @@ const Layout = ({ children }) => {
                           <StarIcon className="w-6 bg-200" aria-hidden="true" />
                         </button>
                       </div>
-                      <div className="subpage-search">
-                        <SearchSelect className="subpage-search-select" classNameSearchIcon="subpage-search-icon" />
+                      <div className={subpageSearch}>
+                        <SearchSelect ref={inputSearchRef} handleClickSearchIcon={expandInputSearch} onBlurInput={showNavBarDefault} className={subpageSearchSelect} classNameSearchIcon={subpageSearchIcon}/>
                       </div>
                     </div>
                     <div className="relative z-10 flex items-center sm:hidden">

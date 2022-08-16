@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import { Combobox } from '@headlessui/react'
 import { StarIcon } from '@heroicons/react/outline';
 import { useNavigate } from "react-router-dom";
@@ -14,9 +14,16 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon }) => {
+const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon, onBlurInput }, ref) => {
   const [query, setQuery] = useState('');
   const navigate = useNavigate();
+
+  const inputRef = useRef();
+  useImperativeHandle(ref, () => ({
+    focus: () => {
+      inputRef.current.focus();
+    }
+  }));
 
   const filteredCompanies =
     query === ''
@@ -46,13 +53,13 @@ const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon })
         <SearchIcon
           className={classNameSearchIcon}
           aria-hidden="true"
-          onClick={handleClickSearchIcon}
-        />
+          onClick={handleClickSearchIcon} />
         <Combobox.Input
+          ref={inputRef}
           className={className}
           placeholder="Search companies"
           onChange={onChangeInput}
-        />
+          onBlur={onBlurInput} />
       </div>
       {filteredCompanies.length > 0 && (
         <Combobox.Options
@@ -100,4 +107,4 @@ const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon })
   )
 }
 
-export default SearchSelect;
+export default forwardRef(SearchSelect);
