@@ -1,22 +1,32 @@
+@media (max-width: 639px) { 
+  .company-container {
+    background-color: rgb(255,255,255, 0.05);
+    @apply rounded-lg;
+  }
+  .subpage-subtitle {
+    word-spacing: 12px;
+  }
+}
+
 .company-container {
-  @apply grid grid-cols-2 mb-12 xl:mb-16;
+  @apply sm:grid sm:grid-cols-2 mb-12 xl:mb-16 py-2 px-2;
 }
 
 .company-card {
-  @apply justify-start mr-4 xl:mr-0;
+  @apply justify-start sm:mr-4 xl:mr-0;
 }
 
 .company-image {
-  @apply w-52 xl:w-96;
+  @apply w-80 sm:w-52 xl:w-96;
 }
 
 .link-about-company {
   color: #94A3B8;
-  @apply italic font-semibold my-3 xl:my-2.5;
+  @apply text-xs sm:text-sm lg:text-lg italic font-semibold my-3 xl:my-2.5;
 }
 
 .company-information-container {
-  @apply justify-end ml-4 xl:ml-24 xl:max-w-sm;
+  @apply justify-end sm:ml-4 xl:ml-24 xl:max-w-sm;
 }
 
 .company-name-section {
@@ -24,7 +34,7 @@
 }
 
 .company-rating {
-  @apply grid grid-cols-2 justify-between mt-2 xl:mt-4 w-60 xl:w-72;
+  @apply flex sm:grid sm:grid-cols-2 justify-between mt-2 xl:mt-4 sm:w-60 xl:w-72;
 }
 
 .company-rating-text {
@@ -57,7 +67,7 @@
 }
 
 .title-question-section {
-  @apply text-xl xl:text-2xl font-semibold mb-8;
+  @apply text-base sm:text-xl xl:text-2xl font-semibold mb-8;
 }
 
 .text-question-section {
