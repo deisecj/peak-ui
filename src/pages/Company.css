@@ -17,7 +17,7 @@
 }
 
 .company-image {
-  @apply w-80 sm:w-52 xl:w-96;
+  @apply w-full;
 }
 
 .link-about-company {
