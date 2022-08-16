@@ -14,7 +14,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const SearchSelect = ({ className, classNameSearchIcon }) => {
+const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon }) => {
   const [query, setQuery] = useState('');
   const navigate = useNavigate();
 
@@ -46,6 +46,7 @@ const SearchSelect = ({ className, classNameSearchIcon }) => {
         <SearchIcon
           className={classNameSearchIcon}
           aria-hidden="true"
+          onClick={handleClickSearchIcon}
         />
         <Combobox.Input
           className={className}

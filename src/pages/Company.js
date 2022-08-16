@@ -3,6 +3,7 @@ import Layout from '../components/layout';
 import { StarIcon } from '@heroicons/react/outline';
 import Rating from '../components/rating';
 import CharacteristicRating from '../components/characteristicRating';
+import TraditionalCharacteristic from '../components/traditionalCharacteristic';
 
 const experienceRatings = [
   { name: 'Work-life balance' },
@@ -64,10 +65,7 @@ const Company = () => {
         <CharacteristicRating characteristic="WORKPLACE EXPERIENCE" ratings={experienceRatings} />
         <CharacteristicRating characteristic="PERSONAL GROWTH" ratings={personalRatings} />
       </div>
-      <div className="traditional-characteristics-container rounded-lg py-8 px-3 xl:py-9 xl:px-12 mt-14">
-        <h1 className="title-characteristics">Traditional workplace characteristics</h1>
-        <CharacteristicRating ratings={traditionalRatings} />
-      </div>
+      <TraditionalCharacteristic ratings={traditionalRatings}/>
       <div className="question-company mt-16 sm:mt-20">
         <h1 className="title-question-section">Do you work at IBM North America?</h1>
         <p className="text-question-section">By honestly rating your company, you can help other job seekers.  Our system is completely anoymous after email verification.</p>
