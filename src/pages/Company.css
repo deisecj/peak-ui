@@ -17,7 +17,7 @@
 }
 
 .company-image {
-  @apply w-80 sm:w-52 xl:w-96;
+  @apply w-full;
 }
 
 .link-about-company {
@@ -71,5 +71,5 @@
 }
 
 .text-question-section {
-  @apply text-base xl:text-lg font-normal mb-8 max-w-xl;
+  @apply text-base xl:text-lg font-normal mb-7 sm:mb-8 max-w-xl;
 }

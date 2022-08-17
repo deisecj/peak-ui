@@ -5,7 +5,7 @@ import '../pages/Company.css'
 
 const TraditionalCharacteristic = ({ ratings }) => {
   return (
-    <div className="traditional-characteristics-container rounded-lg py-8 px-3 xl:py-9 xl:px-12 mt-14">
+    <div className="traditional-characteristics-container rounded-lg py-8 px-3 xl:py-9 xl:px-12 mt-9 sm:mt-14">
       <Disclosure>
         {({ open }) => (
           <>

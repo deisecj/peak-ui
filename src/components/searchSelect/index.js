@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { forwardRef, useImperativeHandle, useRef, useState, useEffect } from 'react'
 import { Combobox } from '@headlessui/react'
 import { StarIcon } from '@heroicons/react/outline';
 import { useNavigate } from "react-router-dom";
@@ -14,18 +14,28 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon }) => {
+const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon, onBlurInput }, ref) => {
   const [companies, setCompanies] = useState([])
   const [query, setQuery] = useState('');
   const navigate = useNavigate();
+
+  const inputRef = useRef();
+  useImperativeHandle(ref, () => ({
+    focus: () => {
+      inputRef.current.focus();
+    }
+  }));
+
   async function getAllCompanies() {
     const response = await fetch('http://localhost:3000/companies')
     const data = await response.json()
     setCompanies(data.companydb)
   }
+
   useEffect(() => {
     getAllCompanies()
   },[]);
+
   const filteredCompanies =
     query === ''
       ? []
@@ -54,13 +64,13 @@ const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon })
         <SearchIcon
           className={classNameSearchIcon}
           aria-hidden="true"
-          onClick={handleClickSearchIcon}
-        />
+          onClick={handleClickSearchIcon} />
         <Combobox.Input
+          ref={inputRef}
           className={className}
           placeholder="Search companies"
           onChange={onChangeInput}
-        />
+          onBlur={onBlurInput} />
       </div>
       {filteredCompanies.length > 0 && (
         <Combobox.Options
@@ -108,4 +118,4 @@ const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon })
   )
 }
 
-export default SearchSelect;
+export default forwardRef(SearchSelect);
