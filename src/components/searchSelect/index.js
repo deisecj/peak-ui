@@ -1,23 +1,31 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Combobox } from '@headlessui/react'
 import { StarIcon } from '@heroicons/react/outline';
 import { useNavigate } from "react-router-dom";
 import { SearchIcon } from '@heroicons/react/solid';
 
-const companies = [
-  { id: 1, name: 'IBM North America', url: '#' },
-  { id: 2, name: 'IBM', url: '#' },
-  { id: 3, name: 'Amazon US', url: '#' },
-]
+// const companies = [
+//   { id: 1, name: 'IBM North America', url: '#' },
+//   { id: 2, name: 'IBM', url: '#' },
+//   { id: 3, name: 'Amazon US', url: '#' },
+// ]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
 const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon }) => {
+  const [companies, setCompanies] = useState([])
   const [query, setQuery] = useState('');
   const navigate = useNavigate();
-
+  async function getAllCompanies() {
+    const response = await fetch('http://localhost:3000/companies')
+    const data = await response.json()
+    setCompanies(data.companydb)
+  }
+  useEffect(() => {
+    getAllCompanies()
+  },[]);
   const filteredCompanies =
     query === ''
       ? []
