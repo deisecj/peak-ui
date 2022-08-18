@@ -4,6 +4,9 @@ import { StarIcon } from '@heroicons/react/outline';
 import Rating from '../components/rating';
 import CharacteristicRating from '../components/characteristicRating';
 import TraditionalCharacteristic from '../components/traditionalCharacteristic';
+import { singleCompany } from '../apis/companyAPI';
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from 'react';
 
 const experienceRatings = [
   { name: 'Work-life balance' },
@@ -34,6 +37,20 @@ const traditionalRatings = [
 ];
 
 const Company = () => {
+  const [companyInfo, setCompanyInfo] = useState({});
+  const params = useParams();
+
+  const getCompanyInfo = async () => {
+    const companyID = params.id;
+    const companyData = await singleCompany(companyID);
+    setCompanyInfo(companyData);
+    console.log("company data", companyInfo)
+  }
+
+  useEffect(() => {
+    getCompanyInfo();
+  },[]);
+
   return (
     <Layout>
       <div className="company-container">
@@ -42,17 +59,17 @@ const Company = () => {
           <p className="link-about-company">About this company</p>    
         </div>
         <div className="company-information-container">
-          <p className="company-name-section">IBM North America</p>
+          <p className="company-name-section">{companyInfo.companydb.name}</p>
           <div className="company-rating">
             <div className="company-rating-stars">
               <Rating />
             </div>
             <div className="company-rating-text">
-              <p>5/5 average rating</p>
+              <p>{companyInfo.average_rating}/5 average rating</p>
             </div>
           </div>
           <div className="company-review-total">
-            <p>Total Reviews: 147</p>
+            <p>Total Reviews: {companyInfo.total_reviews}</p>
           </div>
           <button type="button" className="rate-this-company-button">
             <StarIcon className="icon-button-rate-company" aria-hidden="true" />
