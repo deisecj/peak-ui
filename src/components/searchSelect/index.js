@@ -27,21 +27,15 @@ const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon, o
   }));
 
   async function getAllCompanies() {
-    const response = await fetch('http://localhost:3000/companies')
+    const response = await fetch(`http://localhost:3000/companies/search?q=${query}`)
     const data = await response.json()
     setCompanies(data.companydb)
+    console.log(data.companydb)
   }
 
   useEffect(() => {
-    getAllCompanies()
-  },[]);
-
-  const filteredCompanies =
-    query === ''
-      ? []
-      : companies.filter((company) => {
-        return company.name.toLowerCase().includes(query.toLowerCase())
-      })
+    getAllCompanies();
+  },[query]);
 
   const handleSelectCompany = (company) => {
     if (company) {
@@ -72,11 +66,11 @@ const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon, o
           onChange={onChangeInput}
           onBlur={onBlurInput} />
       </div>
-      {filteredCompanies.length > 0 && (
+      {companies.length > 0 && (
         <Combobox.Options
           className="absolute w-full bg-white rounded-md -mb-2 max-h-72 scroll-py-2 overflow-y-auto py-2 text-sm text-gray-800"
         >
-          {filteredCompanies.map((company) => (
+          {companies.map((company) => (
             <Combobox.Option
               key={company.id}
               value={company}
@@ -92,7 +86,7 @@ const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon, o
         </Combobox.Options>
       )}
 
-      {query !== '' && filteredCompanies.length === 0 && (
+      {query !== '' && companies.length === 0 && (
         <Combobox.Options
           className="absolute w-full bg-white rounded-md -mb-2 scroll-py-2 overflow-y-auto py-2 text-sm text-gray-800"
         >
