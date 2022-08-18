@@ -59,10 +59,10 @@ const Company = () => {
           <p className="link-about-company">About this company</p>    
         </div>
         <div className="company-information-container">
-          <p className="company-name-section">{companyInfo.companydb.name}</p>
+          <p className="company-name-section">{companyInfo.companydb?.name}</p>
           <div className="company-rating">
             <div className="company-rating-stars">
-              <Rating />
+              <Rating rating={companyInfo.average_rating}/>
             </div>
             <div className="company-rating-text">
               <p>{companyInfo.average_rating}/5 average rating</p>
