@@ -27,7 +27,7 @@ const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon, o
   }));
 
   async function getAllCompanies() {
-    const response = await fetch(`http://localhost:3000/companies/search?q=${query}`)
+    const response = await fetch(`/api/companies/search?q=${query}`)
     const data = await response.json()
     setCompanies(data.companydb)
     console.log(data.companydb)
