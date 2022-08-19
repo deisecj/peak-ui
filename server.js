@@ -1,0 +1,41 @@
+// https://medium.com/jeremy-gottfrieds-tech-blog/tutorial-how-to-deploy-a-production-react-app-to-heroku-c4831dfcfa08
+
+const express = require('express');
+const favicon = require('express-favicon');
+const path = require('path');
+const { createProxyMiddleware } = require('http-proxy-middleware');
+
+const port = process.env.PORT || 3000;
+const app = express();
+
+app.use(
+  '/api',
+  createProxyMiddleware({
+    pathRewrite: function (path, req) { return path.replace('/api/', '/') },
+    target: "https://happyjobs-api.herokuapp.com",
+    headers: {
+      Connection: 'keep-alive',
+      host: "happyjobs-api.herokuapp.com",
+    },
+    secure: false,
+    logLevel: 'debug',
+  })
+);
+
+app.use(favicon(__dirname + '/build/favicon.ico'));
+// the __dirname is the current directory from where the script is running
+app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'build')));
+
+
+app.get('/ping', function (req, res) {
+ return res.send('pong');
+});
+
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+
+
+app.listen(port);
