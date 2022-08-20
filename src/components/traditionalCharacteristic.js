@@ -3,7 +3,7 @@ import { ChevronUpIcon } from '@heroicons/react/solid'
 import RatingItem from "./ratingItem";
 import '../pages/Company.css'
 
-const TraditionalCharacteristic = ({ ratings }) => {
+const TraditionalCharacteristic = ({ ratings, averageRating }) => {
   return (
     <div className="traditional-characteristics-container rounded-lg py-8 px-3 xl:py-9 xl:px-12 mt-9 sm:mt-14">
       <Disclosure>
@@ -20,7 +20,7 @@ const TraditionalCharacteristic = ({ ratings }) => {
             </div>
             <Disclosure.Panel className="">
               <div className="rating-section sm:grid sm:grid-cols-2 sm:justify-between mt-5 xl:mt-10">
-                {ratings.map((item, index) => (<RatingItem className={(index + 1) % 2 === 0 ? "sm:ml-6 xl:ml-10" : "sm:mr-6 xl:mr-10"} key={`cultural-${item.name}`} itemName={item.name} />))}
+                {ratings.map((item, index) => (<RatingItem className={(index + 1) % 2 === 0 ? "sm:ml-6 xl:ml-10" : "sm:mr-6 xl:mr-10"} key={`cultural-${item.name}`} itemName={item.name} valueRating={item.rating} />))}
               </div>
             </Disclosure.Panel>
           </>
@@ -29,7 +29,7 @@ const TraditionalCharacteristic = ({ ratings }) => {
       <div className="hidden sm:block">
         <h1 className="title-characteristics">Traditional workplace characteristics</h1>
         <div className="rating-section sm:grid sm:grid-cols-2 sm:justify-between mt-5 xl:mt-10">
-          {ratings.map((item, index) => (<RatingItem className={(index + 1) % 2 === 0 ? "sm:ml-6 xl:ml-10" : "sm:mr-6 xl:mr-10"} key={`cultural-${item.name}`} itemName={item.name} />))}
+          {ratings.map((item, index) => (<RatingItem className={(index + 1) % 2 === 0 ? "sm:ml-6 xl:ml-10" : "sm:mr-6 xl:mr-10"} key={`cultural-${item.name}`} itemName={item.name} valueRating={item.rating} />))}
         </div>
       </div>
     </div >
