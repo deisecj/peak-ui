@@ -30,11 +30,14 @@ const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon, o
     const response = await fetch(`/api/companies/search?q=${query}`)
     const data = await response.json()
     setCompanies(data.companydb)
-    console.log(data.companydb)
   }
 
   useEffect(() => {
-    getAllCompanies();
+    if (query != '') {
+      getAllCompanies();
+    } else {
+      setCompanies('');
+    }
   },[query]);
 
   const handleSelectCompany = (company) => {
