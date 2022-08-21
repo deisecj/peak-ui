@@ -58,10 +58,8 @@ const Company = () => {
     const dataDB = await getCharacteristics();
     const characteristicsData = dataDB.allCharacteristics;
     const ratingData = companyInfo.ratings;
-    console.log("company info", ratingData)
     characteristicsData.forEach(element => {
       const companyRating = ratingData.find(ratingElement => ratingElement.characteristic_id === element.id);
-      console.log("company rating data", companyRating)
       if (element.type === 'Workplace Experience') {
         characteristicWorkplaceData.push(
           {
