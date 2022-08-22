@@ -96,7 +96,7 @@ const Company = () => {
 
   useEffect(() => {
     getCompanyInfo();
-  },[]);
+  },[params.id]);
 
   useEffect(() => {
     if (companyInfo != undefined) {
@@ -115,10 +115,10 @@ const Company = () => {
           <p className="company-name-section">{companyInfo?.companydb?.name}</p>
           <div className="company-rating">
             <div className="company-rating-stars">
-              <Rating rating={companyInfo?.average_rating}/>
+              <Rating rating={Math.round(companyInfo?.average_rating)}/>
             </div>
             <div className="company-rating-text">
-              <p>{companyInfo?.average_rating}/5 average rating</p>
+              <p>{Math.round(companyInfo?.average_rating)}/5 average rating</p>
             </div>
           </div>
           <div className="company-review-total">
