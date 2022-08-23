@@ -8,6 +8,7 @@ import { singleCompany } from '../apis/companyAPI';
 import { getCharacteristics } from '../apis/characteristicAPI';
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
+import ModalRating from '../components/modalRating';
 
 /*const experienceRatings = [
   { name: 'Work-life balance' },
@@ -38,6 +39,7 @@ const traditionalRatings = [
 ];
 */
 const Company = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [companyInfo, setCompanyInfo] = useState(undefined);
   const [characteristicWorkplace, setCharacteristicWorkplace] = useState();
   const [characteristicPersonal, setCharacteristicPersonal] = useState();
@@ -54,6 +56,10 @@ const Company = () => {
     setCompanyInfo(companyData);
   }
 
+  const handleOpenModal = () => {
+    setIsOpen(true);
+  }
+  
   const getCharacteristicData = async () => {
     const dataDB = await getCharacteristics();
     const characteristicsData = dataDB.allCharacteristics;
@@ -124,7 +130,7 @@ const Company = () => {
           <div className="company-review-total">
             <p>Total Reviews: {companyInfo?.total_reviews}</p>
           </div>
-          <button type="button" className="rate-this-company-button">
+          <button onClick={handleOpenModal} type="button" className="rate-this-company-button">
             <StarIcon className="icon-button-rate-company" aria-hidden="true" />
             Rate this company
           </button>
@@ -139,10 +145,11 @@ const Company = () => {
       <div className="question-company mt-14 sm:mt-16 sm:mt-20">
         <h1 className="title-question-section">Do you work at IBM North America?</h1>
         <p className="text-question-section">By honestly rating your company, you can help other job seekers.  Our system is completely anoymous after email verification.</p>
-        <button type="button" className="rate-this-company-button">
+        <button onClick={handleOpenModal} type="button" className="rate-this-company-button">
           <StarIcon className="icon-button-rate-company" aria-hidden="true" />
           Rate this company
         </button>
+        {isOpen && <ModalRating openModal={isOpen} closeModal={() => setIsOpen(false)}/>}
       </div>
     </Layout>
   );

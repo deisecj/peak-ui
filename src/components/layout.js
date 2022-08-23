@@ -2,9 +2,10 @@ import './layout.css'
 import Footer from './footer';
 import { StarIcon, XIcon, MenuIcon } from '@heroicons/react/outline';
 import SearchSelect from './searchSelect';
-import { useNavigate } from "react-router-dom";
 import { Disclosure } from '@headlessui/react';
 import { useRef, useState } from 'react';
+import ModalRating from './modalRating';
+
 
 const menu = [
   { name: 'About' , url: '#' },
@@ -14,14 +15,14 @@ const menu = [
 ];
 
 const Layout = ({ children }) => {
-  const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
   const inputSearchRef = useRef();
   const [subpageSearch, setSubpage] = useState("subpage-search");
   const [subpageSearchIcon, setSubpageSearchIcon] = useState("subpage-search-icon");
   const [subpageSearchSelect, setSubpageSearchSelect] = useState("subpage-search-select");
 
-  const handleRateMyEmployer = () => {
-    navigate('/companies/');
+  const handleOpenModal = () => {
+    setIsOpen(true);
   }
 
   const expandInputSearch = () => {
@@ -53,11 +54,11 @@ const Layout = ({ children }) => {
                   <div className="flex">
                     <div className="subpage-rate-search-section">
                       <div>
-                        <button onClick={handleRateMyEmployer} type="button" className="subpage-rate-button">
+                        <button onClick={handleOpenModal} type="button" className="subpage-rate-button">
                           <StarIcon className="ml-1 mr-2 h-5 w-5 bg-200" aria-hidden="true" />
                           Rate my employer
                         </button>
-                        <button onClick={handleRateMyEmployer} type="button" className="subpage-rate-button-mobile">
+                        <button onClick={handleOpenModal} type="button" className="subpage-rate-button-mobile">
                           <StarIcon className="w-6 bg-200" aria-hidden="true" />
                         </button>
                       </div>
@@ -93,7 +94,7 @@ const Layout = ({ children }) => {
           </Disclosure>     
         </div>       
       </div>
-        
+      {isOpen && <ModalRating openModal={isOpen} closeModal={() => setIsOpen(false)}/>}
       <div className="subpage-container">
         <div className="subpage-title">
           <div className="">

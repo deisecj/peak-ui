@@ -3,6 +3,7 @@ import { Combobox } from '@headlessui/react'
 import { StarIcon } from '@heroicons/react/outline';
 import { useNavigate } from "react-router-dom";
 import { SearchIcon } from '@heroicons/react/solid';
+import ModalRating from '../modalRating';
 
 // const companies = [
 //   { id: 1, name: 'IBM North America', url: '#' },
@@ -17,6 +18,7 @@ function classNames(...classes) {
 const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon, onBlurInput }, ref) => {
   const [companies, setCompanies] = useState([])
   const [query, setQuery] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
   const inputRef = useRef();
@@ -46,8 +48,8 @@ const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon, o
     }
   }
 
-  const handleRateMyEmployer = () => {
-    navigate('/companies');
+  const handleOpenModal = () => {
+    setIsOpen(true);
   }
 
   const onChangeInput = (event) => {
@@ -99,7 +101,7 @@ const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon, o
               <p className="mt-5 text-sm text-gray-400">Try refining your search or search for another company.</p>
               <img src="/images/company-not-found.svg" alt="" className="m-10" />
               <button
-                onClick={handleRateMyEmployer}
+                onClick={handleOpenModal}
                 type="button"
                 className="mt-5 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
@@ -111,6 +113,7 @@ const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon, o
         </Combobox.Options>
       )}
     </Combobox>
+    {isOpen && <ModalRating openModal={isOpen} closeModal={() => setIsOpen(false)}/>}
     </div>
   )
 }

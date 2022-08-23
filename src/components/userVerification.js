@@ -1,0 +1,68 @@
+import { useState } from "react"
+
+const UserVerification = () => {
+  const [emailEmpty, setEmailEmpty] = useState(false);
+  const [emailInvalid, setEmailInvalid] = useState(false);
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = () => {
+    handleInputEmail();
+  }
+
+  const handleInputEmail = () => {
+    if (email === '') {
+      setEmailEmpty(true);
+     } else  { 
+      setEmailInvalid(true);
+     }
+  }
+
+  return (
+    <div>
+      <div className="mt-14">
+        <p className="text-2xl font-semibold leading-8">Thank you for reviewing your current employer.</p>
+      </div>
+      <div className="mt-4">
+        <p className="text-lg font-normal leading-7 text-neutral-500">By honestly rating your company, you can help other job seekers.  Our system is completely anoymous after email verification.</p>
+      </div>
+      <div className="mt-14">
+        <p className="text-lg font-normal leading-7 text-neutral-600">Please provide your work email to authenticate your current employer. This process is completely confidential and your email will be discarded after verification for complete anonymity.</p>
+      </div>
+      <div className="mt-14 grid justify-items-center">
+        <div>
+          <label htmlFor="email" className="block text-sm font-normal text-neutral-600">
+            Work email address
+          </label>
+          <div className="mt-1 relative rounded-md shadow-sm">
+            <input
+              onChange={handleInputEmail}
+              type="email"
+              name="email"
+              id="email"
+              className="block w-80 pr-10 border-brand-500 text-brand-200 placeholder-brand-200 focus:outline-none focus:ring-brand-500 focus:border-brand-500 sm:text-sm rounded-md"
+              placeholder="johndoe@corporation.com"
+              defaultValue=""
+              aria-invalid="true"
+              aria-describedby="email-error"
+            />
+          </div>
+          {emailEmpty && <p className="mt-2 text-sm text-rose-600" id="email-error">
+            *Required to continue
+          </p>}
+          {emailInvalid && <p className="mt-2 text-sm text-rose-600" id="email-error">
+            *Please enter valid employer email
+          </p>}
+        </div>
+      </div>
+      <div className="mt-14 mb-20 grid justify-items-center">
+        <button onClick={handleSubmit} type="button" className="mt-5 inline-flex justify-self-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          Submit
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export default UserVerification;
+
+
