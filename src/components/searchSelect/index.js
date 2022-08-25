@@ -1,7 +1,6 @@
 import { forwardRef, useImperativeHandle, useRef, useState, useEffect } from 'react'
 import { Combobox } from '@headlessui/react'
 import { StarIcon } from '@heroicons/react/outline';
-import { useNavigate } from "react-router-dom";
 import { SearchIcon } from '@heroicons/react/solid';
 import ModalRating from '../modalRating';
 
@@ -15,11 +14,10 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon, onBlurInput }, ref) => {
+const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon, onBlurInput, createEnable, placeHolderText, onSelect }, ref) => {
   const [companies, setCompanies] = useState([])
   const [query, setQuery] = useState('');
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();
 
   const inputRef = useRef();
   useImperativeHandle(ref, () => ({
@@ -42,9 +40,12 @@ const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon, o
     }
   },[query]);
 
-  const handleSelectCompany = (company) => {
+  const handleSelectCompany = (company) => {    
     if (company) {
-      navigate(`/companies/${company.id}`);
+      setQuery(company.name);
+      if (onSelect) {
+        onSelect(company);
+      }
     }
   }
 
@@ -58,7 +59,7 @@ const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon, o
 
   return (
     <div className="relative">
-    <Combobox onChange={handleSelectCompany}>
+    <Combobox value={query} onChange={handleSelectCompany}>
       <div className="relative">
         <SearchIcon
           className={classNameSearchIcon}
@@ -67,13 +68,13 @@ const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon, o
         <Combobox.Input
           ref={inputRef}
           className={className}
-          placeholder="Search companies"
+          placeholder={placeHolderText}
           onChange={onChangeInput}
-          onBlur={onBlurInput} />
+          onBlur={onBlurInput}/>
       </div>
       {companies.length > 0 && (
         <Combobox.Options
-          className="absolute w-full bg-white rounded-md -mb-2 max-h-72 scroll-py-2 overflow-y-auto py-2 text-sm text-gray-800"
+          className="absolute z-50 w-full bg-white rounded-md -mb-2 max-h-72 scroll-py-2 overflow-y-auto py-2 text-sm text-gray-800"
         >
           {companies.map((company) => (
             <Combobox.Option
@@ -91,9 +92,9 @@ const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon, o
         </Combobox.Options>
       )}
 
-      {query !== '' && companies.length === 0 && (
+      {query !== '' && companies.length === 0 && !createEnable && (
         <Combobox.Options
-          className="absolute w-full bg-white rounded-md -mb-2 scroll-py-2 overflow-y-auto py-2 text-sm text-gray-800"
+          className="absolute z-50 w-full bg-white rounded-md -mb-2 scroll-py-2 overflow-y-auto py-2 text-sm text-gray-800"
         >
           <Combobox.Option value={null}>
             <div className="bg-white py-4 px-4 sm:px-6 grid justify-items-center">
@@ -109,6 +110,22 @@ const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon, o
                 Rate my employer
               </button>
             </div>
+          </Combobox.Option>
+        </Combobox.Options>
+      )}
+      {query !== '' && companies.length === 0 && createEnable && (
+        <Combobox.Options
+          className="absolute z-50 w-full bg-white rounded-md -mb-2 scroll-py-2 overflow-y-auto py-2 text-sm text-gray-800"
+        >
+          <Combobox.Option value={{ id: null, name: query }}
+                className={({ active }) =>
+                  classNames(
+                    'cursor-default select-none rounded-md px-4 py-2',
+                    active && 'bg-neutral-100 text-neutral-900'
+                  )
+                  }>
+                Add "{query}"
+      
           </Combobox.Option>
         </Combobox.Options>
       )}

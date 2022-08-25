@@ -5,6 +5,7 @@ import SearchSelect from './searchSelect';
 import { Disclosure } from '@headlessui/react';
 import { useRef, useState } from 'react';
 import ModalRating from './modalRating';
+import { useNavigate } from 'react-router-dom';
 
 
 const menu = [
@@ -15,6 +16,7 @@ const menu = [
 ];
 
 const Layout = ({ children }) => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const inputSearchRef = useRef();
   const [subpageSearch, setSubpage] = useState("subpage-search");
@@ -36,6 +38,10 @@ const Layout = ({ children }) => {
     setSubpage("subpage-search");
     setSubpageSearchIcon("subpage-search-icon");
     setSubpageSearchSelect("subpage-search-select");
+  }
+
+  const handleOnSelectCompany = (company) => {
+    navigate(`/companies/${company.id}`);
   }
 
   return (
@@ -63,7 +69,7 @@ const Layout = ({ children }) => {
                         </button>
                       </div>
                       <div className={subpageSearch}>
-                        <SearchSelect ref={inputSearchRef} handleClickSearchIcon={expandInputSearch} onBlurInput={showNavBarDefault} className={subpageSearchSelect} classNameSearchIcon={subpageSearchIcon}/>
+                        <SearchSelect ref={inputSearchRef} createEnable={false} onSelect={handleOnSelectCompany} handleClickSearchIcon={expandInputSearch} onBlurInput={showNavBarDefault} className={subpageSearchSelect} classNameSearchIcon={subpageSearchIcon} placeHolderText="Search companies"/>
                       </div>
                     </div>
                     <div className="relative z-10 flex items-center sm:hidden">
