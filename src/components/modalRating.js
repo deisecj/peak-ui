@@ -2,6 +2,7 @@ import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react'
 import UserVerification from './userVerification';
 import ModalCompanyDetails from "./modalCompanyDetails";
+import ModalCulturaRatings from './modalCulturalRatings';
 
 const ModalRating = ({ openModal, closeModal }) => {
   const [step, setStep] = useState(1);
@@ -56,6 +57,7 @@ const ModalRating = ({ openModal, closeModal }) => {
                   <div className="mt-2">
                     {step === 1 && <UserVerification onCompleteStep={() => nextStep(2)} />}
                     {step === 2 && <ModalCompanyDetails onCompleteStep={() => nextStep(3)}/>}
+                    {step === 3 && <ModalCulturaRatings onCompleteStep={() => nextStep(4)}/>}
                   </div>
                 </div>
             </Dialog.Panel>

@@ -6,7 +6,7 @@ const ModalCompanyDetails = ({ onCompleteStep }) => {
   const [inputName, setInputName] = useState(false);
   const [companyName, setCompanyName] = useState('');
 
-  const handleSubmit = () => {
+  const handleNext = () => {
     if (companyName) {
       onCompleteStep();
     } else {
@@ -21,7 +21,7 @@ const ModalCompanyDetails = ({ onCompleteStep }) => {
       </div>
       <div className="mt-3 relative rounded-md shadow-sm">
         <SearchSelect
-          className="w-full focus:ring-indigo-500 focus:border-indigo-500 rounded-md border-brand-500 px-4 py-2.5 text-gray-900 placeholder-neutral-400 sm:text-sm"
+          className="w-full focus:ring-indigo-500 focus:border-indigo-500 rounded-md border-brand-500 px-4 py-2.5 text-gray-900 placeholder:text-neutral-400 placeholder:text-base placeholder:font-normal sm:text-sm"
           classNameSearchIcon="hidden"
           placeHolderText="Full company name"
           createEnable={() => {setInputName(true)}}
@@ -46,7 +46,7 @@ const ModalCompanyDetails = ({ onCompleteStep }) => {
               type="text"
               name="position"
               id="position"
-              className="block w-full pr-10 border-brand-500 text-brand-200 placeholder-neutral-400 focus:outline-none focus:ring-brand-500 focus:border-brand-500 sm:text-sm rounded-md"
+              className="block w-full pr-10 border-brand-500 text-brand-200 placeholder:text-neutral-400 placeholder:text-base placeholder:font-normal focus:outline-none focus:ring-brand-500 focus:border-brand-500 sm:text-sm rounded-md"
               placeholder="Junior content writer"
             />
           </div>
@@ -60,15 +60,23 @@ const ModalCompanyDetails = ({ onCompleteStep }) => {
               type="text"
               name="office"
               id="office"
-              className="block w-full pr-10 border-neutral-400 text-brand-200 placeholder-neutral-400 focus:outline-none focus:ring-brand-500 focus:border-brand-500 sm:text-sm rounded-md"
+              className="block w-full pr-10 border-neutral-400 text-brand-200 placeholder:text-neutral-400 placeholder:text-base placeholder:font-normal focus:outline-none focus:ring-brand-500 focus:border-brand-500 sm:text-sm rounded-md"
               placeholder="New York City, NY"
             />
           </div>
         </div>
       </div>
-      <div className="mt-28 mb-12 grid justify-items-end">
-        <div>
-          <button onClick={handleSubmit} type="button" className="mt-5 inline-flex justify-self-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+      <div className="border-t border-neutral-300 mt-12 mb-12 flex justify-between">
+        <div className="pt-10">
+          <button onClick={() => {}} type="button" className="mt-5 inline-flex justify-self-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-5 mr-3">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+            Back
+          </button>
+        </div>
+        <div className="pt-10">
+          <button onClick={handleNext} type="button" className="mt-5 inline-flex justify-self-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             Next
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-5 ml-3">
               <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
