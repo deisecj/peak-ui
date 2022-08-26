@@ -1,9 +1,8 @@
-import { StarIcon } from '@heroicons/react/solid'
 import { useState } from 'react';
 
-const RatingReview = ({ rateSelected }) => {
-  const [rating, setRating] = useState(0);
-  const [savedRating, setSavedRating] = useState(0);
+const RatingReview = ({ initialValue, rateSelected }) => {
+  const [rating, setRating] = useState(initialValue);
+  const [savedRating, setSavedRating] = useState(initialValue);
 
   const emptyStar = (
     <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="star" className="w-10 h-10 mt-2 mr-6 ml-9 text-indigo-600" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
@@ -28,13 +27,13 @@ const RatingReview = ({ rateSelected }) => {
   const handleOnClick = (rate) => {
     setSavedRating(rate);
     setRating(rate);
-    if (savedRating) {
+    if (rateSelected) {
       rateSelected(rate);
     }
   }
   
   const star = (rate) => {
-     return <li onMouseOver={() => handleOnMouseOver(rate)} onMouseLeave={() => handleOnMouseLeave()} onClick={() => handleOnClick(rate)}>{rating >= rate ? fullStar : emptyStar}</li> 
+     return <li key={`star-${rate}`} onMouseOver={() => handleOnMouseOver(rate)} onMouseLeave={() => handleOnMouseLeave()} onClick={() => handleOnClick(rate)}>{rating >= rate ? fullStar : emptyStar}</li> 
   }
  
   const starList = [star(1), star(2), star(3), star(4), star(5)];

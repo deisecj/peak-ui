@@ -1,54 +1,54 @@
 import RatingReview from "./ratingReview";
 import { useEffect, useState } from 'react';
 
-const ModalCulturaRatings = ({ characteristics, initialValues, onCompleteStep, onBackStep, saveCulturalRatings }) => {
-  const [ratingsWorkplace, setRatingsWorkplace] = useState(initialValues);
+const ModalTraditionalRatings = ({ characteristics, initialValues, onCompleteStep, onBackStep, saveTraditionalRatings }) => {
+  const [ratingsTraditional, setRatingsTraditional] = useState(initialValues);
 
   const getInitialRatingReview = (characteristicID) => {
-    const currentRating = ratingsWorkplace.get(characteristicID);
+    const currentRating = ratingsTraditional.get(characteristicID);
       return currentRating?.rating;
   }
 
   const getInitialRatingComment = (characteristicID) => {
-    const currentRating = ratingsWorkplace.get(characteristicID);
+    const currentRating = ratingsTraditional.get(characteristicID);
       return currentRating?.comment;
   }
 
   const handleComment = (event, characteristicID) => {
     const ratingComment = event.target.value;
-    const ratingSearch = ratingsWorkplace.get(characteristicID);
+    const ratingSearch = ratingsTraditional.get(characteristicID);
     
     if (ratingSearch) {    
       ratingSearch.comment = ratingComment;
-      ratingsWorkplace.set(characteristicID, ratingSearch)
-      setRatingsWorkplace(ratingsWorkplace);
+      ratingsTraditional.set(characteristicID, ratingSearch)
+      setRatingsTraditional(ratingsTraditional);
     } else {
-      ratingsWorkplace.set(characteristicID, { comment: ratingComment });
-      setRatingsWorkplace(ratingsWorkplace);
+      ratingsTraditional.set(characteristicID, { comment: ratingComment });
+      setRatingsTraditional(ratingsTraditional);
     }
   }
 
   const handleRatingStar = (ratingSaved, characteristicID) => {
-    const ratingSearch = ratingsWorkplace.get(characteristicID);
-    
+    const ratingSearch = ratingsTraditional.get(characteristicID);
+
     if (ratingSearch) {
       ratingSearch.rating = ratingSaved;
-      ratingsWorkplace.set(characteristicID, ratingSearch)
-      setRatingsWorkplace(ratingsWorkplace);
+      ratingsTraditional.set(characteristicID, ratingSearch)
+      setRatingsTraditional(ratingsTraditional);
     } else {
-      ratingsWorkplace.set(characteristicID, { rating: ratingSaved });
-      setRatingsWorkplace(ratingsWorkplace);
+      ratingsTraditional.set(characteristicID, { rating: ratingSaved });
+      setRatingsTraditional(ratingsTraditional);
     }  
   }
 
   const handleNext = () => {
-    saveCulturalRatings(ratingsWorkplace);
+    saveTraditionalRatings(ratingsTraditional);
     onCompleteStep();
   }
 
   useEffect(() => {
-    console.log("cultural rating temporarly", ratingsWorkplace)
-  }, [ratingsWorkplace])
+    console.log("traditional rating temporarly", ratingsTraditional)
+  }, [ratingsTraditional])
 
   const handleBack = () => {
     onBackStep();
@@ -57,12 +57,10 @@ const ModalCulturaRatings = ({ characteristics, initialValues, onCompleteStep, o
   return (
     <div>
       <div className="mt-14">  
-          <h4 className="mb-1 text-2xl font-semibold leading-8 text-neutral-900">Cultural workplace characteristics</h4>   
-          <p className="mb-5 text-base font-normal leading-6 text-neutral-600">Rate the characteristics that apply to your situation or that you feel comfortable to rate.  Written comments are also optional.</p> 
-          <p className="text-sm font-normal leading-5 text-neutral-500">Don’t forget, it’s completely anonymous, but please be respectful and follow our community <ins className="text-blue-700">guidelines</ins>.</p>
+          <h4 className="mb-1 text-2xl font-semibold leading-8 text-neutral-900">Traditional workplace characteristics</h4>   
       </div>
       {characteristics.map(characteristic => (
-        <div key={`mw-${characteristic.id}`} className="border-t border-neutral-300 mt-14">
+        <div key={`mw-${characteristic.id}`} className="border-t border-neutral-300 mt-10">
         <div className="flex">
           <div>
             <p className="pt-6 mb-2.5 text-lg font-semibold leading-6 text-neutral-900">{characteristic.name}</p>
@@ -115,7 +113,7 @@ const ModalCulturaRatings = ({ characteristics, initialValues, onCompleteStep, o
         </div>
         <div className="pt-10">
           <button onClick={handleNext} type="button" className="mt-5 inline-flex justify-self-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            Personal ratings
+            Submit your company rating
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-5 ml-3">
               <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
             </svg>
@@ -126,4 +124,4 @@ const ModalCulturaRatings = ({ characteristics, initialValues, onCompleteStep, o
   );
 }
 
-export default ModalCulturaRatings;
+export default ModalTraditionalRatings;

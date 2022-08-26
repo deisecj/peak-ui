@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from "react"
+import { useState } from "react"
 
-const UserVerification = ({ onCompleteStep, saveEmail }) => {
+const UserVerification = ({ onCompleteStep, saveEmail, initialValue }) => {
   const [emailEmpty, setEmailEmpty] = useState(false);
   const [emailInvalid, setEmailInvalid] = useState(false);
-  const [inputEmail, setInputEmail] = useState('');
+  const [inputEmail, setInputEmail] = useState(initialValue);
 
   const handleSubmit = () => {
     if (inputEmail === '') {
@@ -12,6 +12,7 @@ const UserVerification = ({ onCompleteStep, saveEmail }) => {
       //if else check business email
       saveEmail(inputEmail);
       onCompleteStep();
+      
     }
   }
   
@@ -37,6 +38,7 @@ const UserVerification = ({ onCompleteStep, saveEmail }) => {
           </label>
           <div className="mt-1 relative rounded-md shadow-sm">
             <input
+              value={inputEmail}
               onChange={HandleInputEmail}
               type="email"
               name="email"

@@ -1,13 +1,19 @@
 import { useState } from "react";
 import SearchSelect from '../components/searchSelect';
 
-const ModalCompanyDetails = ({ onCompleteStep, onBackStep }) => {
+const ModalCompanyDetails = ({ onCompleteStep, onBackStep, saveCompanyDetails, initialValue }) => {
   const [companyEmpty, setCompanyEmpty] = useState(false);
   const [inputName, setInputName] = useState(false);
-  const [companyName, setCompanyName] = useState('');
+  const [companyName, setCompanyName] = useState(initialValue.company);
+  const [inputPosition, setInputPosition] = useState(initialValue.position);
+  const [inputLocation, setInputLocation] = useState(initialValue.location);
+  const [companyDetailsStep, setCompanyDetailsStep] = useState({}); 
 
   const handleNext = () => {
     if (companyName) {
+      const updatedDetailsStep = { company: companyName, position: inputPosition || undefined, location: inputLocation || undefined };
+      setCompanyDetailsStep(updatedDetailsStep)
+      saveCompanyDetails(updatedDetailsStep)
       onCompleteStep();
     } else {
       setCompanyEmpty(true);
@@ -18,6 +24,18 @@ const ModalCompanyDetails = ({ onCompleteStep, onBackStep }) => {
     onBackStep();
   }
   
+  const handleInputPosition = (event) => {
+    setInputPosition(event.target.value);
+  }
+
+  const handleInputLocation = (event) => {
+    setInputLocation(event.target.value);
+  }
+
+  const handleCompanyInput = (company) => {   
+     setCompanyName(company);
+  }
+
   return (
     <div>
       <div className="mt-14">
@@ -29,7 +47,7 @@ const ModalCompanyDetails = ({ onCompleteStep, onBackStep }) => {
           classNameSearchIcon="hidden"
           placeHolderText="Full company name"
           createEnable={() => {setInputName(true)}}
-          onSelect={(company) => { setCompanyName(company) }}
+          onSelect={handleCompanyInput}
         />
       </div>
       {!companyEmpty && <p className="mt-2 text-sm text-rose-600" id="email-error">*Required</p>}
@@ -47,6 +65,8 @@ const ModalCompanyDetails = ({ onCompleteStep, onBackStep }) => {
           </label>
           <div className="mt-2 relative rounded-md shadow-sm">
             <input
+              value={inputPosition}
+              onChange={handleInputPosition}
               type="text"
               name="position"
               id="position"
@@ -61,6 +81,8 @@ const ModalCompanyDetails = ({ onCompleteStep, onBackStep }) => {
           </label>
           <div className="mt-2 relative rounded-md shadow-sm">
             <input
+              value={inputLocation}
+              onChange={handleInputLocation}
               type="text"
               name="office"
               id="office"
