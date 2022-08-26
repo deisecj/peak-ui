@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
-const UserVerification = ({ onCompleteStep }) => {
+const UserVerification = ({ onCompleteStep, saveEmail }) => {
   const [emailEmpty, setEmailEmpty] = useState(false);
   const [emailInvalid, setEmailInvalid] = useState(false);
   const [inputEmail, setInputEmail] = useState('');
@@ -10,6 +10,7 @@ const UserVerification = ({ onCompleteStep }) => {
       setEmailEmpty(true);
     } else {
       //if else check business email
+      saveEmail(inputEmail);
       onCompleteStep();
     }
   }

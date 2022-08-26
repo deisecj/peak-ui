@@ -6,9 +6,19 @@ import ModalCulturaRatings from './modalCulturalRatings';
 
 const ModalRating = ({ openModal, closeModal }) => {
   const [step, setStep] = useState(1);
+  const [email, setEmail] = useState();
 
   const nextStep = (step) => {
     setStep(step);
+  }
+
+  const backStep = (step) => {
+    setStep(step);
+  }
+
+  const getEmail = (email) => {
+    setEmail(email);
+    console.log("value email modal", email)
   }
 
   return (
@@ -55,9 +65,9 @@ const ModalRating = ({ openModal, closeModal }) => {
                   </div>
 
                   <div className="mt-2">
-                    {step === 1 && <UserVerification onCompleteStep={() => nextStep(2)} />}
-                    {step === 2 && <ModalCompanyDetails onCompleteStep={() => nextStep(3)}/>}
-                    {step === 3 && <ModalCulturaRatings onCompleteStep={() => nextStep(4)}/>}
+                    {step === 1 && <UserVerification onCompleteStep={() => nextStep(2)} saveEmail={getEmail} />}
+                    {step === 2 && <ModalCompanyDetails onCompleteStep={() => nextStep(3)} onBackStep={() => backStep(1)} />}
+                    {step === 3 && <ModalCulturaRatings onCompleteStep={() => nextStep(4)} onBackStep={() => backStep(2)} />}
                   </div>
                 </div>
             </Dialog.Panel>
