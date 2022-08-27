@@ -30,7 +30,7 @@ const ModalCulturaRatings = ({ characteristics, initialValues, onCompleteStep, o
 
   const handleRatingStar = (ratingSaved, characteristicID) => {
     const ratingSearch = ratingsWorkplace.get(characteristicID);
-    
+
     if (ratingSearch) {
       ratingSearch.rating = ratingSaved;
       ratingsWorkplace.set(characteristicID, ratingSearch)
@@ -77,7 +77,7 @@ const ModalCulturaRatings = ({ characteristics, initialValues, onCompleteStep, o
           </div>
           </div>
         </div>
-        <p className="mb-6 text-base font-normal leading-6 text-neutral-600">The amount of time I spend doing my job compared with the amount of time I spend with family and friends and doing things I enjoy.</p>
+        <p className="mb-6 text-base font-normal leading-6 text-neutral-600">{characteristic.short_description}</p>
         <div className="h-14 rounded-md shadown-xl bg-white">
           <RatingReview initialValue={getInitialRatingReview(characteristic.id)} rateSelected={(ratingSaved) => handleRatingStar(ratingSaved, characteristic.id)}/>
         </div>
