@@ -1,20 +1,23 @@
 import { useState } from "react"
 
-const UserVerification = () => {
+const UserVerification = ({ onCompleteStep, saveEmail, initialValue }) => {
   const [emailEmpty, setEmailEmpty] = useState(false);
   const [emailInvalid, setEmailInvalid] = useState(false);
-  const [email, setEmail] = useState('');
+  const [inputEmail, setInputEmail] = useState(initialValue);
 
   const handleSubmit = () => {
-    handleInputEmail();
-  }
-
-  const handleInputEmail = () => {
-    if (email === '') {
+    if (inputEmail === '') {
       setEmailEmpty(true);
-     } else  { 
-      setEmailInvalid(true);
-     }
+    } else {
+      //if else check business email
+      saveEmail(inputEmail);
+      onCompleteStep();
+      
+    }
+  }
+  
+  const HandleInputEmail = (event) => {
+    setInputEmail(event.target.value);
   }
 
   return (
@@ -35,13 +38,13 @@ const UserVerification = () => {
           </label>
           <div className="mt-1 relative rounded-md shadow-sm">
             <input
-              onChange={handleInputEmail}
+              value={inputEmail}
+              onChange={HandleInputEmail}
               type="email"
               name="email"
               id="email"
               className="block w-80 pr-10 border-brand-500 text-brand-200 placeholder-brand-200 focus:outline-none focus:ring-brand-500 focus:border-brand-500 sm:text-sm rounded-md"
               placeholder="johndoe@corporation.com"
-              defaultValue=""
               aria-invalid="true"
               aria-describedby="email-error"
             />

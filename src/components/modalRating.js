@@ -1,8 +1,72 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react'
+import { getCharacteristics } from '../apis/characteristicAPI';
 import UserVerification from './userVerification';
+import ModalCompanyDetails from "./modalCompanyDetails";
+import ModalCulturaRatings from './modalCulturalRatings';
+import ModalPersonalRatings from './modalPersonalRatings';
+import ModalTraditionalRatings from './modalTraditionalRatings';
+import ModalConfirmationReview from './modalConfirmationReview';
 
 const ModalRating = ({ openModal, closeModal }) => {
+  const [step, setStep] = useState(1);
+  const [email, setEmail] = useState('');
+  const [companyDetailsStep, setCompanyDetailsStep] = useState({});
+  const [characteristics, setCharacteristics] = useState([]);
+  const [culturalRatingsStep, setCulturalRatingsStep] = useState(new Map());
+  const [personalRatingsStep, setPersonalRatingsStep] = useState(new Map());
+  const [traditionalRatingsStep, setTraditionalRatingsStep] = useState(new Map());
+
+  const nextStep = (step) => {
+    setStep(step);
+  }
+
+  const backStep = (step) => {
+    setStep(step);
+    
+  }
+
+  const getEmail = (email) => {
+    setEmail(email);
+    console.log("value email modal", email)
+  }
+
+  const getCompanyStepData = (companyData) => {
+    setCompanyDetailsStep(companyData);
+    console.log("value company step modal", companyData)
+  }
+
+  const getCulturalRatingsStep = (culturalRatingsData) => {
+    setCulturalRatingsStep(culturalRatingsData);   
+    console.log("value getCulturalRatingsStep", culturalRatingsData)
+  }
+
+  const getPersonalRatingsStep = (personalRatingsData) => {
+    setPersonalRatingsStep(personalRatingsData);   
+    console.log("value getPersonalRatingsStep", personalRatingsData)
+  }
+
+  const getTraditionalRatingsStep = (traditionalRatingsData) => {
+    setTraditionalRatingsStep(traditionalRatingsData);   
+    console.log("value getTraditionalRatingsStep", traditionalRatingsData)
+  }
+
+  const populateCharacteristicsData = async () => {
+    const dataDB = await getCharacteristics();
+    const characteristicsData = dataDB.allCharacteristics;
+    setCharacteristics(characteristicsData);
+  }
+
+  // open the modal
+  useEffect(() => {
+    if (openModal) {
+      populateCharacteristicsData();
+    }
+  }, [openModal])
+
+  useEffect(() => {
+    console.log("value cultural rating step modal", culturalRatingsStep);
+  }, [culturalRatingsStep])
 
   return (
     <Transition appear show={openModal} as={Fragment}>
@@ -48,7 +112,12 @@ const ModalRating = ({ openModal, closeModal }) => {
                   </div>
 
                   <div className="mt-2">
-                    <UserVerification />
+                    {step === 1 && <UserVerification onCompleteStep={() => nextStep(2)} saveEmail={getEmail} initialValue={email}/>}
+                    {step === 2 && <ModalCompanyDetails onCompleteStep={() => nextStep(3)} onBackStep={() => backStep(1)} saveCompanyDetails={getCompanyStepData} initialValue={companyDetailsStep}/>}
+                    {step === 3 && <ModalCulturaRatings initialValues={culturalRatingsStep} characteristics={characteristics.filter(characteristic => characteristic.type === 'Workplace Experience')} onCompleteStep={() => nextStep(4)} onBackStep={() => backStep(2)} saveCulturalRatings={getCulturalRatingsStep}/>}
+                    {step === 4 && <ModalPersonalRatings initialValues={personalRatingsStep} characteristics={characteristics.filter(characteristic => characteristic.type === 'Personal Growth')} onCompleteStep={() => nextStep(5)} onBackStep={() => backStep(3)} savePersonalRatings={getPersonalRatingsStep}/>}
+                    {step === 5 && <ModalTraditionalRatings initialValues={traditionalRatingsStep} characteristics={characteristics.filter(characteristic => characteristic.type === 'Traditional')} onCompleteStep={() => nextStep(6)} onBackStep={() => backStep(4)} saveTraditionalRatings={getTraditionalRatingsStep}/>}
+                    {step === 6 && <ModalConfirmationReview />}
                   </div>
                 </div>
             </Dialog.Panel>
