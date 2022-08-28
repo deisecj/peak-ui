@@ -114,7 +114,7 @@ const Company = () => {
     <Layout>
       <div className="company-container">
         <div className="company-card">
-          <img src="/images/company-image.svg" className="company-image" />
+          <img src="/images/company-generic-image.svg" className="company-image" />
           <p className="link-about-company">About this company</p>    
         </div>
         <div className="company-information-container">

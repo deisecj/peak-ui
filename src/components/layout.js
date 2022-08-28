@@ -111,11 +111,10 @@ const Layout = ({ children }) => {
           </div>
         </div>
         <main className="subpage-main">{children}</main>
-       
       </div>
-      <div className="subpage-footer-bg">
-          <Footer menuClassName="subpage-menu-section" footerClassName="subpage-footer" />
-        </div>
+      <div>
+        <Footer menuClassName="subpage-menu-section" footerClassName="subpage-footer" />    
+      </div> 
     </div>
   )
 }

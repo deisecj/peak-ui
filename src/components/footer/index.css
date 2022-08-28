@@ -1,6 +1,5 @@
-.footer-content {
-  @apply flex justify-between mb-4 sm:mt-14 mt-0 sm:mb-8;
-  
+.footer-bg {
+  background: #EEF2FF;
 }
 
 .footer-section {
@@ -14,7 +13,7 @@
 
 .footer-text {
   color: #334155;
-  @apply text-sm mt-3;
+  @apply text-sm mt-4;
 }
 
 .footer-logo {
