@@ -114,7 +114,7 @@ const Company = () => {
     <Layout>
       <div className="company-container">
         <div className="company-card">
-          <img src="/images/company-image.svg" className="company-image" />
+          <img src="/images/company-generic-image.svg" className="company-image" />
           <p className="link-about-company">About this company</p>    
         </div>
         <div className="company-information-container">
@@ -143,8 +143,9 @@ const Company = () => {
       </div>
       {characteristicTraditional && <TraditionalCharacteristic ratings={characteristicTraditional}/>}
       <div className="question-company mt-14 sm:mt-16 sm:mt-20">
-        <h1 className="title-question-section">Do you work at IBM North America?</h1>
-        <p className="text-question-section">By honestly rating your company, you can help other job seekers.  Our system is completely anoymous after email verification.</p>
+        <h1 className="title-question-section">Do you work at {companyInfo?.companydb?.name}?</h1>
+        <p className="text-question-section">Your company rating makes an impact with a community of job hunters justi like you.</p>
+        <p className="text-question-section">Share relatable experiences without including your location or position, unless you want to.</p>
         <button onClick={handleOpenModal} type="button" className="rate-this-company-button">
           <StarIcon className="icon-button-rate-company" aria-hidden="true" />
           Rate this company

@@ -11,14 +11,20 @@ const Footer = ({ menuClassName, footerClassName }) => {
           <li className="menu-text">Rating and review guidelines</li>
         </ul>
       </div>
-      <div className={footerClassName}>
-        <div className="footer-content">
-          <img
-            className="footer-logo"
-            src="/images/happy-jobs-logo.svg"
-            alt=""
-          />
-          <p className="footer-text">All rights reserved 2022</p>
+      <div className='footer-bg'>
+        <div className="subpage-container">
+          <div className={footerClassName}>
+            <div className="footer-content">
+              <img
+                className="footer-logo"
+                src="/images/peak-logo.svg"
+                alt=""
+              />
+            </div>
+            <div className=''>
+              <p className="footer-text">All rights reserved 2022</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -9,7 +9,7 @@ const CharacteristicRating = ({ characteristic, ratings, collapsable = true }) =
           {({ open }) => (
             <>
             {collapsable && <div className="sm:hidden">
-              <Disclosure.Button className="flex w-full border-b-2 border-neutral-700 pb-2 text-base xl:text-lg font-semibold text-neutral-300">
+              <Disclosure.Button className="flex w-full border-b border-neutral-300 pb-2 text-base xl:text-lg font-semibold text-neutral-600">
                 {characteristic && <h2 className="">{characteristic}</h2>}
                 <ChevronUpIcon
                   className={`${open ? 'rotate-180 transform' : ''
@@ -26,7 +26,7 @@ const CharacteristicRating = ({ characteristic, ratings, collapsable = true }) =
           )}
         </Disclosure>
       <div className="hidden sm:block">
-        {characteristic && <h2 className="border-b-2 border-neutral-700 pb-2 text-base xl:text-lg font-semibold text-neutral-300">{characteristic}</h2>}
+        {characteristic && <h2 className="border-b border-neutral-300 pb-2 text-base xl:text-lg font-semibold text-neutral-600">{characteristic}</h2>}
         <div className="rating-section sm:grid sm:grid-cols-2 sm:justify-between mt-5 xl:mt-10">
           {ratings.map((item, index) => (<RatingItem className={(index + 1) % 2 === 0 ? "sm:ml-6 xl:ml-10" : "sm:mr-6 xl:mr-10"} key={`cultural-${item.name}`} itemName={item.name} valueRating={item.rating} />))}
         </div>

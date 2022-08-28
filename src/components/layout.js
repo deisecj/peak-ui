@@ -54,14 +54,14 @@ const Layout = ({ children }) => {
                 <div className="subpage-header">
                   <img
                     className="subpage-logo"
-                    src="/images/happy-jobs-logo.svg"
+                    src="/images/peak-logo.svg"
                     alt=""
                   />
                   <div className="flex">
                     <div className="subpage-rate-search-section">
-                      <div>
+                      <div className='py-1.5'>
                         <button onClick={handleOpenModal} type="button" className="subpage-rate-button">
-                          <StarIcon className="ml-1 mr-2 h-5 w-5 bg-200" aria-hidden="true" />
+                          <StarIcon className="ml-1 mr-2 h-6 w-6 bg-200" aria-hidden="true" />
                           Rate my employer
                         </button>
                         <button onClick={handleOpenModal} type="button" className="subpage-rate-button-mobile">
@@ -111,10 +111,10 @@ const Layout = ({ children }) => {
           </div>
         </div>
         <main className="subpage-main">{children}</main>
-        <div className="subpage-footer-bg">
-          <Footer menuClassName="subpage-menu-section" footerClassName="subpage-footer" />
-        </div>
       </div>
+      <div>
+        <Footer menuClassName="subpage-menu-section" footerClassName="subpage-footer" />    
+      </div> 
     </div>
   )
 }

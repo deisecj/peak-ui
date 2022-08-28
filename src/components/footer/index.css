@@ -1,5 +1,5 @@
-.footer-content {
-  @apply flex justify-between mb-4 sm:mt-14 mt-0 sm:mb-8;
+.footer-bg {
+  background: #EEF2FF;
 }
 
 .footer-section {
@@ -7,15 +7,15 @@
 }
 
 .menu-text {
-  color: #94A3B8;
-  @apply py-4 text-sm;
+  color: #475569;
+  @apply py-4 text-sm font-semibold;
 }
 
 .footer-text {
-  color: #FFFFFF;
-  @apply text-sm;
+  color: #334155;
+  @apply text-sm mt-4;
 }
 
 .footer-logo {
-  @apply w-32 xl:w-44;
+  @apply w-32 xl:w-24;
 }
