@@ -15,7 +15,7 @@ const Footer = ({ menuClassName, footerClassName }) => {
         <div className="footer-content">
           <img
             className="footer-logo"
-            src="/images/happy-jobs-logo.svg"
+            src="/images/peak-logo.svg"
             alt=""
           />
           <p className="footer-text">All rights reserved 2022</p>

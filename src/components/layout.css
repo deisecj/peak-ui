@@ -1,12 +1,8 @@
 @media (max-width: 639px) { 
   .subpage-footer-bg {
-    background-color: rgb(255,255,255, 0.05);
+    background-color: #EEF2FF;
     @apply pb-2 pt-4
   }
-}
-
-.subpage-bg-header {
-  background-color: rgb(255,255,255, 0.05);
 }
 
 .subpage-container {
@@ -14,11 +10,15 @@
 }
 
 .subpage-header {
-  @apply flex justify-between mx-6 xl:mx-40 sm:mx-12 py-3;
+  @apply flex justify-between mx-6 xl:mx-40 sm:mx-12 py-1.5;
+}
+
+.subpage-bg-header {
+ background: #EEF2FF;
 }
 
 .subpage-logo {
-  @apply w-32 xl:w-44;
+  @apply w-20 xl:w-24;
 }
 
 .subpage-rate-search-section {
@@ -26,15 +26,15 @@
 }
 
 .subpage-rate-button {
-  @apply hidden sm:inline-flex justify-self-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+  @apply hidden sm:inline-flex justify-self-center px-4 py-2 h-11 mt-1 border border-transparent shadow-sm text-base font-semibold rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
 }
 
 .subpage-rate-button-mobile{
-  @apply sm:hidden justify-self-center mt-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+  @apply sm:hidden justify-self-center mt-1 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
 }
 
 .subpage-search-select {
-  @apply hidden lg:block h-10 w-full focus:ring-indigo-500 focus:border-indigo-500 rounded-md border-0 bg-gray-100 px-4 py-1 pl-11 text-gray-900 placeholder-gray-500 sm:text-sm;
+  @apply hidden lg:block h-11 w-full mt-2 focus:ring-indigo-500 focus:border-indigo-500 rounded-md border-neutral-400 bg-white px-4 py-1 pl-11 text-gray-900 placeholder-gray-500 sm:text-sm;
 }
 
 .subpage-search-select-expanded {
@@ -51,7 +51,8 @@
 }
 
 .subpage-title {
-  @apply sm:flex justify-between mx-6 sm:mx-20 xl:mx-64 mt-3 sm:mt-6 xl:mt-14 mb-8 sm:mb-12 xl:mb-20 text-2xl xl:text-5xl text-neutral-50 font-bold;
+  @apply sm:flex justify-between mx-6 sm:mx-20 xl:mx-64 mt-3 sm:mt-6 xl:mt-14 mb-8 sm:mb-12 xl:mb-20 text-2xl xl:text-5xl font-bold;
+  color: #4F46E5;
 }
 
 .subpage-menu-section {
@@ -59,7 +60,8 @@
 }
 
 .subpage-footer {
-  @apply mx-6 sm:mx-12 xl:mx-40;
+  @apply max-w-screen-2xl mx-auto;
+  background: #EEF2FF;
 }
 
 .subpage-main {
