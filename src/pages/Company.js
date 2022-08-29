@@ -6,7 +6,7 @@ import CharacteristicRating from '../components/characteristicRating';
 import TraditionalCharacteristic from '../components/traditionalCharacteristic';
 import { singleCompany } from '../apis/companyAPI';
 import { getCharacteristics } from '../apis/characteristicAPI';
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import ModalRating from '../components/modalRating';
 
@@ -39,7 +39,6 @@ const traditionalRatings = [
 ];
 */
 const Company = () => {
-  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [companyInfo, setCompanyInfo] = useState(undefined);
   const [characteristicWorkplace, setCharacteristicWorkplace] = useState();
@@ -101,11 +100,6 @@ const Company = () => {
     setCharacteristicTraditional(characteristicTraditionalData);
   }
 
-  const handleClickLogo = () => {
-    console.log("called")
-    navigate('/');
-  }
-
   useEffect(() => {
     getCompanyInfo();
   },[params.id]);
@@ -120,7 +114,7 @@ const Company = () => {
     <Layout>
       <div className="company-container">
         <div className="company-card">
-          <img src="/images/company-generic-image.svg" className="company-image" onClick={handleClickLogo}/>    
+          <img src="/images/company-generic-image.svg" className="company-image"/>    
           <p className="link-about-company">About this company</p>    
         </div>
         <div className="company-information-container">

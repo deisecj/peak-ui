@@ -44,6 +44,11 @@ const Layout = ({ children }) => {
     navigate(`/companies/${company.id}`);
   }
 
+  const handleClickLogo = () => {
+    console.log("called")
+    navigate('/');
+  }
+
   return (
     <div>
       <div className="subpage-bg-header">
@@ -56,6 +61,7 @@ const Layout = ({ children }) => {
                     className="subpage-logo"
                     src="/images/peak-logo.svg"
                     alt=""
+                    onClick={handleClickLogo}
                   />
                   <div className="flex">
                     <div className="subpage-rate-search-section">
