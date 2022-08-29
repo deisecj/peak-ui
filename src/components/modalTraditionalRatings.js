@@ -99,7 +99,7 @@ const ModalTraditionalRatings = ({ characteristics, initialValues, onCompleteSte
             maxLength="200"
             value={getInitialRatingComment(characteristic.id)}
           />
-          <div className="text-xs text-neutral-400 text-right">0/200</div>
+          {/* <div className="text-xs text-neutral-400 text-right">0/200</div> */}
         </div>
       </div> ))}
       <div className="border-t border-neutral-300 mt-12 mb-12 flex justify-between">

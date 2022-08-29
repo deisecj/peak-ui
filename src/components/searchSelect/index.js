@@ -14,9 +14,9 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon, onBlurInput, createEnable, placeHolderText, onSelect }, ref) => {
+const SearchSelect = ({ value, className, classNameSearchIcon, handleClickSearchIcon, onBlurInput, createEnable, placeHolderText, onSelect }, ref) => {
   const [companies, setCompanies] = useState([])
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState(value?.name);
   const [isOpen, setIsOpen] = useState(false);
 
   const inputRef = useRef();
@@ -70,6 +70,7 @@ const SearchSelect = ({ className, classNameSearchIcon, handleClickSearchIcon, o
           className={className}
           placeholder={placeHolderText}
           onChange={onChangeInput}
+
           onBlur={onBlurInput}/>
       </div>
       {companies.length > 0 && (

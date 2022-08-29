@@ -48,6 +48,7 @@ const ModalCompanyDetails = ({ onCompleteStep, onBackStep, saveCompanyDetails, i
           placeHolderText="Full company name"
           createEnable={() => {setInputName(true)}}
           onSelect={handleCompanyInput}
+          value={companyName}
         />
       </div>
       {!companyEmpty && <p className="mt-2 text-sm text-rose-600" id="email-error">*Required</p>}
