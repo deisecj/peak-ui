@@ -30,7 +30,7 @@
 }
 
 .company-name-section {
-  @apply text-neutral-900 font-semibold text-2xl xl:text-3xl;
+  @apply text-neutral-900 font-semibold text-2xl xl:text-3xl mt-2 sm:mt-0;
 }
 
 .company-rating {

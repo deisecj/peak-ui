@@ -115,7 +115,7 @@ const Company = () => {
       <div className="company-container">
         <div className="company-card">
           <img src="/images/company-generic-image.svg" className="company-image"/>    
-          <p className="link-about-company">About this company</p>    
+          {/* <p className="link-about-company">About this company</p> */}
         </div>
         <div className="company-information-container">
           <p className="company-name-section">{companyInfo?.companydb?.name}</p>

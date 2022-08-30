@@ -57,8 +57,8 @@ const UserVerification = ({ onCompleteStep, saveEmail, initialValue }) => {
           </p>}
         </div>
       </div>
-      <div className="mt-14 mb-20 grid justify-items-center">
-        <button onClick={handleSubmit} type="button" className="mt-5 inline-flex justify-self-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+      <div className="mt-14 mb-10 sm:mb-20 grid justify-items-center">
+        <button onClick={handleSubmit} type="button" className="mt-5 h-11 inline-flex justify-self-center px-4 py-2.5 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
           Submit
         </button>
       </div>
