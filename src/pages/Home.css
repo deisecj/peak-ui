@@ -1,4 +1,4 @@
-@media (min-width: 640px) { 
+@media (min-width: 1280px) { /* >= desktop */
   .hero-section {
     /*background-image: url("../../public/images/hero-bg.svg");
     background-repeat: no-repeat; */
@@ -9,24 +9,58 @@
     background-position: left bottom, right top;
     background-repeat: no-repeat, no-repeat;
   }
+  
 }
 
-.header-bg {
-  @apply max-w-screen-2xl mx-auto pt-3 sm:pt-6 xl:pt-20 pb-36
+@media (min-width: 640px) { /* >= tablet */
+  .header-bg {
+    background-image: url("../../public/images/hero-left-blobs-cut.svg"), url("../../public/images/right-top-blobs-cut.svg");
+    background-position: left bottom, right top;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 40% 40%;
+  }
+
+  .hero-title {
+    word-spacing: 40px;
+  }
+
+  .hero-image-mobile {
+    @apply hidden;
+  }
 }
 
-@media (max-width: 639px) {
+@media (max-width: 639px) { /* mobile */
   .title-text {
-    letter-spacing: 0.09em;
+   /* letter-spacing: 0.09em;*/
+  }
+
+  .hero-image-mobile {
+    @apply block py-10 pr-28 mt-10;
+    background-image: url("../../public/images/hero-bg-right-blob.svg");
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: 70%;
   }
 
   .hero-header-navbar {
     background: #EEF2FF;
   }
+
+  .hero-title {
+    word-spacing: 10px;
+  }
+}
+
+#home, #home-content {
+  
 }
 
 .hero-bg-header {
   background: #EEF2FF;
+}
+
+.header-bg {
+  @apply xl:max-w-screen-2xl mx-auto pt-3 sm:pt-6 xl:pt-20 pb-10 xl:pb-36
 }
 
 .hero-section {
@@ -34,20 +68,21 @@
 }
 
 .hero-logo {
-  @apply w-32 xl:w-24;
+  @apply w-20 xl:w-24;
 }
 
 .navbar-menu {
-  @apply lg:hidden absolute z-50 w-full bg-gray-800 text-white;
+  @apply lg:hidden absolute z-50 w-full bg-gray-800;
+  color: #4F46E5;
 }
 
 .navbar-menu-content {
-  background-color: rgb(255,255,255, 0.05);
+  background-color:  #EEF2FF;
   @apply pt-2 pb-3 space-y-1;
 }
 
 .hero-header {
- @apply py-2 mx-6 sm:ml-12 xl:ml-40 flex justify-between;
+ @apply pt-3 pb-1 mx-6 sm:ml-12 xl:ml-40 flex justify-between;
 }
 
 .hero-content {
@@ -56,18 +91,16 @@
 }
 
 .hero-image {
-  @apply hidden sm:block;
+  @apply hidden sm:block xl:w-auto w-64;
 }
 
 .explore-section {
- /* @apply sm:mb-28 mb-14 sm:mt-20 mt-2 xl:mx-96 lg:mx-36 sm:px-20 px-6; */
-
-  
+ /* @apply sm:mb-28 mb-14 sm:mt-20 mt-2 xl:mx-96 lg:mx-36 sm:px-20 px-6; */ 
 }
 
 .hero-title {
-  @apply sm:flex justify-between mx-6 sm:mx-20 xl:mx-64 mb-8 sm:mb-12 xl:mb-6 text-2xl xl:text-5xl font-bold;
-  word-spacing: 40px;
+  @apply sm:flex justify-between mx-6 sm:mx-20 xl:mx-64 mb-3 sm:mb-6 text-2xl xl:text-5xl font-bold;
+  
   color: #4F46E5;
 }
 
@@ -78,7 +111,7 @@
 
 .search-label {
   color: #334155;
-  @apply sm:text-2xl text-base font-normal mb-3;
+  @apply text-base xl:text-2xl font-normal mb-3;
 }
 
 .search-item {
@@ -87,21 +120,31 @@
 
 .information-section-item {
   color: #0F172A;
-  @apply text-lg font-normal;
+  @apply text-base xl:text-lg font-normal;
   
+}
+
+.information-section-item.mobile {
+  text-align: center;
+  background-color: #EEF2FF;
+  @apply py-10 rounded-2xl;
 }
 
 .contribute-section {
   background-color: rgb(255,255,255, 0.05);
-  @apply py-14 mb-14 mx-6 sm:mx-0 rounded-lg sm:rounded-none;
+  @apply py-14 sm:mb-14 mx-6 sm:mx-0 rounded-lg sm:rounded-none;
+}
+
+.contribute-section.mobile {
+  @apply py-7 mb-10;
 }
 
 .contribute-content {
-  @apply sm:flex grid justify-between sm:gap-x-52 mx-6 sm:mx-20 xl:mx-64;
+  @apply sm:flex grid justify-between gap-x-3 xl:gap-x-52 mx-6 sm:mx-20 xl:mx-64;
 }
 
 .contribute-image {
-  @apply w-40 mr-0 sm:mr-12 xl:mr-0 xl:w-72 justify-self-center;
+  @apply w-48 xl:w-72 mr-0 sm:mr-12 xl:mr-0 justify-self-center;
 }
 
 .rate-section {
@@ -110,14 +153,15 @@
 }
 
 .menu-section {
-  @apply mx-auto mb-14 max-w-screen-2xl;
+  @apply hidden sm:block mx-auto mb-14 max-w-screen-2xl;
 }
+
 .menu-section ul {
   @apply mx-6 sm:mx-20 xl:mx-64
 }
 
 .footer-section {
-  @apply flex justify-between mx-6 xl:mx-40 sm:mx-12 mt-14 py-1.5;
+  @apply flex justify-between mx-6 xl:mx-40 sm:mx-12 sm:mt-14 py-1.5;
 }
 
 .search-icon {

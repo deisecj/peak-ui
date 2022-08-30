@@ -2,20 +2,24 @@
   background: #EEF2FF;
 }
 
+.footer {
+  
+}
+
 .footer-section {
   @apply mx-6 sm:ml-12 xl:ml-40;
 }
 
 .menu-text {
   color: #475569;
-  @apply py-4 text-sm font-semibold;
+  @apply py-4 text-xs xl:text-sm font-semibold;
 }
 
 .footer-text {
   color: #334155;
-  @apply text-sm mt-4;
+  @apply text-sm mt-3 xl:mt-4;
 }
 
 .footer-logo {
-  @apply w-32 xl:w-24;
+  @apply w-20 xl:w-24;
 }

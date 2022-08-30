@@ -30,7 +30,7 @@
 }
 
 .subpage-rate-button {
-  @apply hidden sm:inline-flex justify-self-center px-4 py-2 h-11 mt-1 border border-transparent shadow-sm text-base font-semibold rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+  @apply hidden sm:inline-flex justify-self-center px-4 py-2 h-10 mt-1 border border-transparent shadow-sm text-base font-semibold rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
 }
 
 .subpage-rate-button-mobile{
@@ -46,11 +46,12 @@
 }
 
 .subpage-navbar-menu {
-  @apply lg:hidden absolute z-40 w-full bg-gray-800 text-white;
+  @apply lg:hidden absolute z-40 w-full bg-gray-800;
+  color: #4F46E5;
 }
 
 .subpage-navbar-menu-content {
-  background-color: rgb(255,255,255, 0.05);
+  background-color:  #EEF2FF;
   @apply pt-2 pb-3 space-y-1;
 }
 
@@ -68,9 +69,9 @@
 }
 
 .subpage-search-icon {
-  @apply cursor-pointer pointer-events-auto xl:absolute xl:top-3 mt-2 xl:mt-0 xl:left-4 h-6 xl:h-5 w-6 xl:w-5 text-gray-400;
+  @apply cursor-pointer pointer-events-auto xl:absolute xl:top-3 mt-3 xl:mt-0 xl:left-4 h-6 sm:h-8 xl:h-5 w-6 sm:w-8 xl:w-5 text-gray-400;
 }
 
 .subpage-search-expanded {
-  @apply absolute z-50 top-3 left-2 w-full pl-3 pr-7;
+  @apply absolute z-50 top-4 left-2 w-full pl-3 pr-7;
 }

@@ -84,7 +84,7 @@ const ModalRating = ({ openModal, closeModal }) => {
       </Transition.Child>
 
       <div className="fixed inset-0 overflow-y-auto">
-        <div className="flex items-center justify-center p-4 text-center">
+        <div className="flex items-center justify-center px-4 py-16 sm:p-20 text-center">
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -94,14 +94,8 @@ const ModalRating = ({ openModal, closeModal }) => {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <Dialog.Panel className="w-full max-w-3xl transform overflow-hidden rounded-2xl bg-neutral-50 p-6 text-left align-middle shadow-xl transition-all">
-                { /*<Dialog.Title
-                as="h3"
-                className="text-lg font-medium leading-6 text-gray-900"
-              >
-                Payment successful
-               </Dialog.Title> */}
-                <div className="mx-24">
+            <Dialog.Panel className="max-w-sm sm:max-w-2xl xl:w-full xl:max-w-3xl transform overflow-hidden rounded-2xl bg-neutral-50 p-6 text-left align-middle shadow-xl transition-all">
+                <div className="sm:mx-24">
                   <div className="grid justify-items-end mt-3">
                     <button onClick={closeModal} type="button" className="bg-neutral-50 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-inset focus:ring-indigo-500">
                       <span className="sr-only">Close menu</span>
