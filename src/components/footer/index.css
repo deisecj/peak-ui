@@ -2,6 +2,10 @@
   background: #EEF2FF;
 }
 
+.footer {
+  
+}
+
 .footer-section {
   @apply mx-6 sm:ml-12 xl:ml-40;
 }
