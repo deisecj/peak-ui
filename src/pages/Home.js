@@ -76,13 +76,13 @@ const Home = () => {
         </div>
         <div className='hero-content'>
           <div className="grid grid-cols-2 gap-20 justify-between mx-64">
-            <div className="explore-section">
+            <div className="hidden xl:block explore-section">
               <p className="mb-40 text-neutral-900 text-2xl leading-9 font-normal">Understanding workplace culture doesn’t have to be so hard</p>
-              <div className="">
+              <div className="hidden xl:block mt-10 xl:mt-0">
                 <div className="">
                   <p className="search-label">Find culture reviews from actual employees</p>
                 </div>
-                <div className="search-item">
+                <div className="hidden xl:block search-item">
                   <SearchSelect
                     createEnable={false}
                     onSelect={handleOnSelectCompany}
@@ -93,31 +93,63 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div className='mt-6'>
+            <div className='hidden xl:block mt-6'>
               <img src="./images/hero-image.svg" className="hero-image" />
             </div>
           </div>
+          {/*tablet version */}
+          <div className='block xl:hidden mx-20'>
+            <div>
+              <p className="text-neutral-900 text-xl font-normal">Understanding workplace culture doesn’t have to be so hard</p>
+            </div>
+            <div className='mt-6 flex justify-center'>
+              <img src="./images/hero-image.svg" className="hero-image ml-10" />
+            </div>
+            <div className="block xl:hidden mt-8 xl:mt-0">
+                <div className="">
+                  <p className="search-label">Find culture reviews from actual employees</p>
+                </div>
+                <div className="block xl:hidden search-item">
+                  <SearchSelect
+                    createEnable={false}
+                    onSelect={handleOnSelectCompany}
+                    className="h-12 w-full focus:ring-indigo-500 focus:border-indigo-500 rounded-md border bg-white px-4 py-2.5 pl-11 text-gray-900 placeholder-neutral-400 placeholder-text-base sm:text-sm"
+                    classNameSearchIcon="search-icon"
+                    placeHolderText="Search companies"
+                  />
+                </div>
+              </div>
+          </div> 
         </div>
       </div>
       <div className="hero-content">
         <div className="contribute-section">
           <div className="contribute-content">
             <img src="./images/rate-employer.svg" alt="" className="contribute-image" />
-            <div className="rate-section lg:mt-16">
-              <p className="text-neutral-900 text-2xl leading-10">Contribute to a growing community</p>
-              <button onClick={handleOpenModal} type="button" className="mt-5 inline-flex justify-self-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <div className="rate-section pt-10 xl:pt-0 xl:mt-16">
+              <p className="text-neutral-900 text-xl xl:text-2xl xl:leading-10">Contribute to a growing community</p>
+              <button onClick={handleOpenModal} type="button" className="mt-10 xl:mt-5 inline-flex justify-self-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 <StarIcon className="-ml-1 mr-2 h-5 w-5 bg-200" aria-hidden="true" />
                 Rate my employer
               </button>
               {isOpen && <ModalRating openModal={isOpen} closeModal={() => setIsOpen(false)} />}
-              <div className="information-section-item mt-14 mb-10">
+              <div className="hidden xl:block information-section-item xl:mt-8 mb-5 xl:mb-10">
+                <p>Your company rating makes an impact with a community of job hunters just like you.</p>
+              </div>
+              <div className="hidden xl:block  information-section-item">
+                <p>Share relatable experiences without including your location or position, unless you want to.</p>
+              </div>
+            </div>      
+          </div>
+          {/* tablet version */}
+          <div className='block xl:hidden flex justify-between gap-x-10 mt-10 mx-20'>
+              <div className="information-section-item">
                 <p>Your company rating makes an impact with a community of job hunters just like you.</p>
               </div>
               <div className="information-section-item">
                 <p>Share relatable experiences without including your location or position, unless you want to.</p>
               </div>
             </div>
-          </div>
         </div>
       </div>
         <Footer menuClassName="menu-section" footerClassName="footer-section"/>

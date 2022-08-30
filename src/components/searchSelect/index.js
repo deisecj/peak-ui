@@ -84,7 +84,7 @@ const SearchSelect = ({ value, className, classNameSearchIcon, handleClickSearch
               className={({ active }) =>
                 classNames(
                   'cursor-default select-none rounded-md px-4 py-2',
-                  active && 'bg-neutral-100 text-neutral-900'
+                  active && 'bg-indigo-100 text-neutral-900'
                 )
               }>
               {company.name}
