@@ -74,6 +74,7 @@ const Company = () => {
             type: element.type,
             name: element.name,
             rating: companyRating?.rating,
+            fullDescription: element.full_description
           });
       } else if (element.type === 'Personal Growth') {
         characteristicPersonalData.push(
@@ -83,6 +84,7 @@ const Company = () => {
             type: element.type,
             name: element.name,
             rating: companyRating?.rating,
+            fullDescription: element.full_description
           });
       } else {
         characteristicTraditionalData.push(
@@ -92,6 +94,7 @@ const Company = () => {
             type: element.type,
             name: element.name,
             rating: companyRating?.rating,
+            fullDescription: element.full_description
           });
       }
     });    
@@ -138,10 +141,10 @@ const Company = () => {
       </div>
       <div className="cultural-characteristics-container">
         <h1 className="title-characteristics">Cultural workplace characteristics</h1>
-        {characteristicWorkplace && <CharacteristicRating characteristic="WORKPLACE EXPERIENCE" ratings={characteristicWorkplace} />}
-        {characteristicPersonal && <CharacteristicRating characteristic="PERSONAL GROWTH" ratings={characteristicPersonal} /> }
+        {characteristicWorkplace && <CharacteristicRating characteristic="WORKPLACE EXPERIENCE" ratings={characteristicWorkplace} company={companyInfo?.companydb?.id}/>}
+        {characteristicPersonal && <CharacteristicRating characteristic="PERSONAL GROWTH" ratings={characteristicPersonal} company={companyInfo?.companydb?.id} /> }
       </div>
-      {characteristicTraditional && <TraditionalCharacteristic ratings={characteristicTraditional}/>}
+      {characteristicTraditional && <TraditionalCharacteristic ratings={characteristicTraditional} company={companyInfo?.companydb?.id}/>}
       <div className="question-company mt-14 sm:mt-16 sm:mt-20">
         <h1 className="title-question-section">Do you work at {companyInfo?.companydb?.name}?</h1>
         <p className="text-question-section">Your company rating makes an impact with a community of job hunters justi like you.</p>

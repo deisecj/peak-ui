@@ -2,7 +2,7 @@ import RatingItem from "./ratingItem";
 import { Disclosure } from '@headlessui/react';
 import { ChevronUpIcon } from '@heroicons/react/solid'
 
-const CharacteristicRating = ({ characteristic, ratings, collapsable = true }) => {
+const CharacteristicRating = ({ characteristic, ratings, collapsable = true, company}) => {
   return (
     <div className="workplace-experience-section mt-6 w-full">
        <Disclosure defaultOpen={collapsable ? false : true}>
@@ -19,7 +19,7 @@ const CharacteristicRating = ({ characteristic, ratings, collapsable = true }) =
               </div>}
             <Disclosure.Panel className="">
               <div className="rating-section sm:grid sm:grid-cols-2 sm:justify-between mt-5 xl:mt-10">
-                {ratings.map((item, index) => (<RatingItem className={(index + 1) % 2 === 0 ? "sm:ml-6 xl:ml-10" : "sm:mr-6 xl:mr-10"} key={`cultural-${item.name}`} itemName={item.name} valueRating={item.rating} />))}
+                {ratings.map((item, index) => (<RatingItem className={(index + 1) % 2 === 0 ? "sm:ml-6 xl:ml-10" : "sm:mr-6 xl:mr-10"} key={`cultural-${item.name}`} rating={item} company={company}/>))}
               </div>
             </Disclosure.Panel>
           </>
@@ -28,7 +28,7 @@ const CharacteristicRating = ({ characteristic, ratings, collapsable = true }) =
       <div className="hidden sm:block">
         {characteristic && <h2 className="border-b border-neutral-300 pb-2 text-base xl:text-lg font-semibold text-neutral-600">{characteristic}</h2>}
         <div className="rating-section sm:grid sm:grid-cols-2 sm:justify-between mt-5 xl:mt-10">
-          {ratings.map((item, index) => (<RatingItem className={(index + 1) % 2 === 0 ? "sm:ml-6 xl:ml-10" : "sm:mr-6 xl:mr-10"} key={`cultural-${item.name}`} itemName={item.name} valueRating={item.rating} />))}
+          {ratings.map((item, index) => (<RatingItem className={(index + 1) % 2 === 0 ? "sm:ml-6 xl:ml-10" : "sm:mr-6 xl:mr-10"} key={`cultural-${item.name}`} rating={item} company={company} />))}
         </div>
       </div>
     </div>
