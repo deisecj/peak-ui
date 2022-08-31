@@ -47,7 +47,7 @@ const ModalCulturaRatings = ({ characteristics, initialValues, onCompleteStep, o
   }
 
   useEffect(() => {
-    console.log("cultural rating temporarly", ratingsWorkplace)
+    
   }, [ratingsWorkplace])
 
   const handleBack = () => {

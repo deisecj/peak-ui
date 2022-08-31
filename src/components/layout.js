@@ -35,17 +35,18 @@ const Layout = ({ children }) => {
   }
   
   const showNavBarDefault = () => {
+    setTimeout(() => inputSearchRef.current.blur());
     setSubpage("subpage-search");
     setSubpageSearchIcon("subpage-search-icon");
     setSubpageSearchSelect("subpage-search-select");
+    
   }
 
   const handleOnSelectCompany = (company) => {
-    navigate(`/companies/${company.id}`);
+      navigate(`/companies/${company.id}`);
   }
 
   const handleClickLogo = () => {
-    console.log("called")
     navigate('/');
   }
 

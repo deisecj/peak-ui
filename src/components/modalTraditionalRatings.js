@@ -47,7 +47,7 @@ const ModalTraditionalRatings = ({ characteristics, initialValues, onCompleteSte
   }
 
   useEffect(() => {
-    console.log("traditional rating temporarly", ratingsTraditional)
+    
   }, [ratingsTraditional])
 
   const handleBack = () => {
