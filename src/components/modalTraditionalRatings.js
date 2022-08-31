@@ -60,7 +60,7 @@ const ModalTraditionalRatings = ({ characteristics, initialValues, onCompleteSte
           <h4 className="mb-1 text-2xl font-semibold leading-8 text-neutral-900">Traditional workplace characteristics</h4>   
       </div>
       {characteristics.map(characteristic => (
-        <div key={`mw-${characteristic.id}`} className="border-t border-neutral-300 mt-10">
+        <div key={`mwt-${characteristic.id}`} className="border-t border-neutral-300 mt-10">
         <div className="flex">
           <div>
             <p className="pt-6 mb-2.5 text-lg font-semibold leading-6 text-neutral-900">{characteristic.name}</p>

@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       lineClamp: {
         7: '7',
-      }
+      },
+      visibility: ['group-hover'],
     },
   },
   plugins: [
