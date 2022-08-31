@@ -43,7 +43,7 @@ const Home = () => {
 
             <div className="relative z-10 flex items-center sm:hidden">
               {/* Mobile menu button */}
-              <Disclosure.Button className="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+              <Disclosure.Button className="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-indigo-100 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                 <span className="sr-only">Open menu</span>
                 {open ? (
                   <XIcon className="block h-6 w-6" aria-hidden="true" />
