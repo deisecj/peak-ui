@@ -23,8 +23,19 @@ const SearchSelect = ({ value, className, classNameSearchIcon, handleClickSearch
   useImperativeHandle(ref, () => ({
     focus: () => {
       inputRef.current.focus();
+    },
+    blur: () => {
+      inputRef.current.blur();
     }
   }));
+
+  const handleOnBlurInput = () => {
+    setTimeout(() => {
+      if (onBlurInput) {
+        onBlurInput();
+      }
+    }, 0);
+  }
 
   async function getAllCompanies() {
     const response = await fetch(`/api/companies/search?q=${query}`)
@@ -40,7 +51,7 @@ const SearchSelect = ({ value, className, classNameSearchIcon, handleClickSearch
     }
   },[query]);
 
-  const handleSelectCompany = (company) => {    
+  const handleSelectCompany = (company) => {   
     if (company) {
       setQuery(company.name);
       if (onSelect) {
@@ -70,8 +81,7 @@ const SearchSelect = ({ value, className, classNameSearchIcon, handleClickSearch
           className={className}
           placeholder={placeHolderText}
           onChange={onChangeInput}
-
-          onBlur={onBlurInput}/>
+          onBlur={handleOnBlurInput}/>
       </div>
       {companies.length > 0 && (
         <Combobox.Options

@@ -47,7 +47,7 @@ const ModalPersonalRatings = ({ characteristics, initialValues, onCompleteStep, 
   }
 
   useEffect(() => {
-    console.log("personal rating temporarly", ratingsPersonal)
+    
   }, [ratingsPersonal])
 
   const handleBack = () => {

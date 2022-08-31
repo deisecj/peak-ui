@@ -9,8 +9,7 @@ import ReactTooltip from 'react-tooltip';
 
 const ModalReviewDetails = ({ openModal, closeModal, company, characteristicRating, handleOpenModalRate }) => {
   const [reviewsData, setReviewsData] = useState([]);
-
-  console.log("company value", company)
+  
   const getReviewsData = async () => {
     const dataDB = await getAllReviews(company);
     const reviewsData = dataDB.reviewDb;
