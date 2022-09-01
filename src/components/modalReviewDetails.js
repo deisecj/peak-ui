@@ -87,13 +87,13 @@ const ModalReviewDetails = ({ openModal, closeModal, company, characteristicRati
                         </div>
                       </div>
                       
-                      {!reviewsData.find((review) => review.review_text !== '' ) && (
+                      {!reviewsData.find((review) => review.review_text && review.review_text !== '' ) && (
                          <div className='mt-10'>
                           <p className='text-neutral-800 leading-6 italic text-base'>Sorry, there are no written reviews for this workplace characteristic.  Care to leave a review for the community?</p>
                           </div>
                         )}
                      
-                      {reviewsData.find((review) => review.review_text !== '' ) && (
+                      {reviewsData.find((review) => review.review_text && review.review_text !== '' ) && (
                         <div className="mt-4 sm:mt-12 border-b border-neutral-300">
                           <p className='text-base text-neutral-700 italic leading-6 mb-1'>WRITTEN REVIEWS</p>
                         </div>

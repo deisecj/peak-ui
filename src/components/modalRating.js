@@ -7,10 +7,12 @@ import ModalCulturaRatings from './modalCulturalRatings';
 import ModalPersonalRatings from './modalPersonalRatings';
 import ModalTraditionalRatings from './modalTraditionalRatings';
 import ModalConfirmationReview from './modalConfirmationReview';
+import { createReview } from '../apis/reviewAPI'; 
 
 const ModalRating = ({ openModal, closeModal }) => {
   const [step, setStep] = useState(1);
   const [email, setEmail] = useState('');
+  const [notification, setNotification] = useState(undefined);
   const [companyDetailsStep, setCompanyDetailsStep] = useState({});
   const [characteristics, setCharacteristics] = useState([]);
   const [culturalRatingsStep, setCulturalRatingsStep] = useState(new Map());
@@ -28,33 +30,63 @@ const ModalRating = ({ openModal, closeModal }) => {
 
   const getEmail = (email) => {
     setEmail(email);
-    console.log("value email modal", email)
   }
 
   const getCompanyStepData = (companyData) => {
     setCompanyDetailsStep(companyData);
-    console.log("value company step modal", companyData)
   }
 
   const getCulturalRatingsStep = (culturalRatingsData) => {
     setCulturalRatingsStep(culturalRatingsData);   
-    console.log("value getCulturalRatingsStep", culturalRatingsData)
   }
 
   const getPersonalRatingsStep = (personalRatingsData) => {
     setPersonalRatingsStep(personalRatingsData);   
-    console.log("value getPersonalRatingsStep", personalRatingsData)
   }
 
   const getTraditionalRatingsStep = (traditionalRatingsData) => {
     setTraditionalRatingsStep(traditionalRatingsData);   
-    console.log("value getTraditionalRatingsStep", traditionalRatingsData)
   }
 
   const populateCharacteristicsData = async () => {
     const dataDB = await getCharacteristics();
     const characteristicsData = dataDB.allCharacteristics;
     setCharacteristics(characteristicsData);
+  }
+
+  const convertMapToReviews = (ratingMap) => {
+    const reviews = [];
+    ratingMap.forEach((value, key) => {
+      reviews.push({ characteristic_id: key, rating: value.rating, review_text: value.comment });
+    });
+
+    return reviews;
+  }
+
+  const onCompleteTraditionalRatingStep = async (traditionalRatingsData) => {
+    setTraditionalRatingsStep(traditionalRatingsData); 
+
+    const culturalRatings = convertMapToReviews(culturalRatingsStep);
+    const personalRatings = convertMapToReviews(personalRatingsStep);
+    const traditionalRatings = convertMapToReviews(traditionalRatingsData);
+
+    const reviewBody = {
+      company: companyDetailsStep.company,
+      user: { email, job_location: companyDetailsStep.location, job_position: companyDetailsStep.position },
+      reviews: culturalRatings.concat(personalRatings).concat(traditionalRatings)
+    }
+
+    try {
+      const response = await createReview(reviewBody);
+      if (response.status === 200) {
+        nextStep(6);
+      } else {
+        const body = await response.json();
+        setNotification(body.message);
+      }
+    } catch (e) {
+      setNotification('Oops, something went wrong, please contact us.');
+    }
   }
 
   // open the modal
@@ -65,7 +97,7 @@ const ModalRating = ({ openModal, closeModal }) => {
   }, [openModal])
 
   useEffect(() => {
-    console.log("value cultural rating step modal", culturalRatingsStep);
+    
   }, [culturalRatingsStep])
 
   return (
@@ -110,7 +142,7 @@ const ModalRating = ({ openModal, closeModal }) => {
                     {step === 2 && <ModalCompanyDetails onCompleteStep={() => nextStep(3)} onBackStep={() => backStep(1)} saveCompanyDetails={getCompanyStepData} initialValue={companyDetailsStep}/>}
                     {step === 3 && <ModalCulturaRatings initialValues={culturalRatingsStep} characteristics={characteristics.filter(characteristic => characteristic.type === 'Workplace Experience')} onCompleteStep={() => nextStep(4)} onBackStep={() => backStep(2)} saveCulturalRatings={getCulturalRatingsStep}/>}
                     {step === 4 && <ModalPersonalRatings initialValues={personalRatingsStep} characteristics={characteristics.filter(characteristic => characteristic.type === 'Personal Growth')} onCompleteStep={() => nextStep(5)} onBackStep={() => backStep(3)} savePersonalRatings={getPersonalRatingsStep}/>}
-                    {step === 5 && <ModalTraditionalRatings initialValues={traditionalRatingsStep} characteristics={characteristics.filter(characteristic => characteristic.type === 'Traditional')} onCompleteStep={() => nextStep(6)} onBackStep={() => backStep(4)} saveTraditionalRatings={getTraditionalRatingsStep}/>}
+                    {step === 5 && <ModalTraditionalRatings notification={notification} initialValues={traditionalRatingsStep} characteristics={characteristics.filter(characteristic => characteristic.type === 'Traditional')} onCompleteStep={onCompleteTraditionalRatingStep} onBackStep={() => backStep(4)}/>}
                     {step === 6 && <ModalConfirmationReview />}
                   </div>
                 </div>

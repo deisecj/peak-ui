@@ -1,7 +1,7 @@
 import RatingReview from "./ratingReview";
 import { useEffect, useState } from 'react';
 
-const ModalTraditionalRatings = ({ characteristics, initialValues, onCompleteStep, onBackStep, saveTraditionalRatings }) => {
+const ModalTraditionalRatings = ({ notification, characteristics, initialValues, onCompleteStep, onBackStep }) => {
   const [ratingsTraditional, setRatingsTraditional] = useState(initialValues);
 
   const getInitialRatingReview = (characteristicID) => {
@@ -41,9 +41,8 @@ const ModalTraditionalRatings = ({ characteristics, initialValues, onCompleteSte
     }  
   }
 
-  const handleNext = () => {
-    saveTraditionalRatings(ratingsTraditional);
-    onCompleteStep();
+  const handleSubmit = () => {
+    onCompleteStep(ratingsTraditional);
   }
 
   useEffect(() => {
@@ -102,22 +101,34 @@ const ModalTraditionalRatings = ({ characteristics, initialValues, onCompleteSte
           {/* <div className="text-xs text-neutral-400 text-right">0/200</div> */}
         </div>
       </div> ))}
-      <div className="border-t border-neutral-300 mt-12 mb-12 flex justify-between">
-        <div className="pt-10">
-          <button onClick={handleBack} type="button" className="mt-5 h-11 inline-flex justify-self-center px-4 py-2.5 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-5 mr-3">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-            </svg>
-            Back
-          </button>
+      
+      
+
+      <div className="border-t border-neutral-300 mt-12 mb-12">
+
+      {notification && (
+        <div className="notification-request">
+          <p>{notification}</p>
         </div>
-        <div className="pt-10">
-          <button onClick={handleNext} type="button" className="mt-5 h-11 inline-flex justify-self-center px-4 py-2.5 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-            Submit rating
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-5 ml-3">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-            </svg>
-          </button>
+      )}
+
+        <div className="flex justify-between">
+          <div className="pt-10">
+            <button onClick={handleBack} type="button" className="mt-5 h-11 inline-flex justify-self-center px-4 py-2.5 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-5 mr-3">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+              </svg>
+              Back
+            </button>
+          </div>
+          <div className="pt-10">
+            <button onClick={handleSubmit} type="button" className="mt-5 h-11 inline-flex justify-self-center px-4 py-2.5 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              Submit rating
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-5 ml-3">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </div>

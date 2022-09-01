@@ -75,3 +75,7 @@
 .subpage-search-expanded {
   @apply absolute z-50 top-4 left-2 w-full pl-3 pr-7;
 }
+
+.notification-request {
+  @apply mt-5 bg-red-100 p-5 rounded-md font-semibold text-red-900 text-base
+}
