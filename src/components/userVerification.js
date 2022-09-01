@@ -6,13 +6,17 @@ const UserVerification = ({ onCompleteStep, saveEmail, initialValue }) => {
   const [inputEmail, setInputEmail] = useState(initialValue);
 
   const handleSubmit = () => {
+    const validRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
     if (inputEmail === '') {
       setEmailEmpty(true);
-    } else {
-      //if else check business email
+    } else if (inputEmail.match(validRegex)) {
       saveEmail(inputEmail);
       onCompleteStep();
-      
+      //pending: also check business email 
+    } else {
+      setEmailInvalid(true);
+      setEmailEmpty(false);
     }
   }
   
