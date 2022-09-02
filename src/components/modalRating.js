@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useEffect, useState, useRef } from 'react';
 import { Dialog, Transition } from '@headlessui/react'
 import { getCharacteristics } from '../apis/characteristicAPI';
 import UserVerification from './userVerification';
@@ -10,6 +10,7 @@ import ModalConfirmationReview from './modalConfirmationReview';
 import { createReview } from '../apis/reviewAPI'; 
 
 const ModalRating = ({ openModal, closeModal }) => {
+  const modalFocusOnTop = useRef();
   const [step, setStep] = useState(1);
   const [email, setEmail] = useState('');
   const [notification, setNotification] = useState(undefined);
@@ -24,6 +25,7 @@ const ModalRating = ({ openModal, closeModal }) => {
   }
 
   const backStep = (step) => {
+
     setStep(step);
     
   }
@@ -97,8 +99,8 @@ const ModalRating = ({ openModal, closeModal }) => {
   }, [openModal])
 
   useEffect(() => {
-    
-  }, [culturalRatingsStep])
+    setTimeout(() => modalFocusOnTop.current?.scrollIntoView());
+  }, [step])
 
   return (
     <Transition appear show={openModal} as={Fragment}>
@@ -127,7 +129,7 @@ const ModalRating = ({ openModal, closeModal }) => {
             leaveTo="opacity-0 scale-95"
           >
             <Dialog.Panel className="max-w-sm sm:max-w-2xl xl:w-full xl:max-w-3xl transform overflow-hidden rounded-2xl bg-neutral-50 p-6 text-left align-middle shadow-xl transition-all">
-                <div className="sm:mx-24">
+                <div ref={modalFocusOnTop} className="sm:mx-24">
                   <div className="grid justify-items-end mt-3">
                     <button onClick={closeModal} type="button" className="bg-neutral-50 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-inset focus:ring-indigo-500">
                       <span className="sr-only">Close menu</span>
