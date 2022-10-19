@@ -9,10 +9,10 @@ import { useNavigate } from 'react-router-dom';
 
 
 const menu = [
-  { name: 'About' , url: '#' },
-  { name: 'Privacy policy' , url: '#' },
-  { name: 'Terms of use', url: '#' },
-  { name: 'Rating and review guidelines', url: '#' }
+  { name: 'About' , url: '/info' },
+  { name: 'Privacy policy' , url: '/info' },
+  { name: 'Terms of use', url: '/info' },
+  { name: 'Rating and review guidelines', url: '/info' }
 ];
 
 const Layout = ({ children }) => {

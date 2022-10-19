@@ -5,10 +5,10 @@ const Footer = ({ menuClassName, footerClassName }) => {
     <div className="footer">
       <div className={menuClassName}>
         <ul>
-          <li className="menu-text">About us</li>
-          <li className="menu-text">Privacy policy</li>
-          <li className="menu-text">Terms of use</li>
-          <li className="menu-text">Rating and review guidelines</li>
+          <a href='/info'><li className="menu-text">About us</li></a>
+          <a href='/info'><li className="menu-text">Privacy policy</li></a>
+          <a href='/info'><li className="menu-text">Terms of use</li></a>
+          <a href='/info'><li className="menu-text">Rating and review guidelines</li></a>
         </ul>
       </div>
       <div className='footer-bg'>

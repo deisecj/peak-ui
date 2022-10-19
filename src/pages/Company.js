@@ -62,7 +62,7 @@ const Company = () => {
   
   const getCharacteristicData = async () => {
     const dataDB = await getCharacteristics();
-    const characteristicsData = dataDB.allCharacteristics;
+    const characteristicsData = dataDB;
     const ratingData = companyInfo.ratings;
     characteristicsData.forEach(element => {
       const companyRating = ratingData.find(ratingElement => ratingElement.characteristic_id === element.id);
@@ -121,17 +121,17 @@ const Company = () => {
           {/* <p className="link-about-company">About this company</p> */}
         </div>
         <div className="company-information-container">
-          <p className="company-name-section">{companyInfo?.companydb?.name}</p>
+          <p className="company-name-section">{companyInfo?.company?.name}</p>
           <div className="company-rating">
             <div className="company-rating-stars">
-              <Rating rating={Math.round(companyInfo?.average_rating)}/>
+              <Rating rating={Math.round(companyInfo?.averageCharacteristicRating)}/>
             </div>
             <div className="company-rating-text">
-              <p>{Math.round(companyInfo?.average_rating)}/5 average rating</p>
+              <p>{Math.round(companyInfo?.averageCharacteristicRating)}/5 average rating</p>
             </div>
           </div>
           <div className="company-review-total">
-            <p>Total Reviews: {companyInfo?.total_reviews}</p>
+            <p>Total Reviews: {companyInfo?.totalReviews}</p>
           </div>
           <button onClick={handleOpenModal} type="button" className="rate-this-company-button">
             <StarIcon className="icon-button-rate-company" aria-hidden="true" />
@@ -141,13 +141,13 @@ const Company = () => {
       </div>
       <div className="cultural-characteristics-container">
         <h1 className="title-characteristics">Cultural workplace characteristics</h1>
-        {characteristicWorkplace && <CharacteristicRating characteristic="WORKPLACE EXPERIENCE" ratings={characteristicWorkplace} company={companyInfo?.companydb?.id}/>}
-        {characteristicPersonal && <CharacteristicRating characteristic="PERSONAL GROWTH" ratings={characteristicPersonal} company={companyInfo?.companydb?.id} /> }
+        {characteristicWorkplace && <CharacteristicRating characteristic="WORKPLACE EXPERIENCE" ratings={characteristicWorkplace} company={companyInfo?.company?.id}/>}
+        {characteristicPersonal && <CharacteristicRating characteristic="PERSONAL GROWTH" ratings={characteristicPersonal} company={companyInfo?.company?.id} /> }
       </div>
-      {characteristicTraditional && <TraditionalCharacteristic ratings={characteristicTraditional} company={companyInfo?.companydb?.id}/>}
+      {characteristicTraditional && <TraditionalCharacteristic ratings={characteristicTraditional} company={companyInfo?.company?.id}/>}
       <div className="question-company mt-14 sm:mt-16 sm:mt-20">
-        <h1 className="title-question-section">Do you work at {companyInfo?.companydb?.name}?</h1>
-        <p className="text-question-section">Your company rating makes an impact with a community of job hunters justi like you.</p>
+        <h1 className="title-question-section">Do you work at {companyInfo?.company?.name}?</h1>
+        <p className="text-question-section">Your company rating makes an impact with a community of job hunters just like you.</p>
         <p className="text-question-section">Share relatable experiences without including your location or position, unless you want to.</p>
         <button onClick={handleOpenModal} type="button" className="rate-this-company-button">
           <StarIcon className="icon-button-rate-company" aria-hidden="true" />

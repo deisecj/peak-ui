@@ -38,9 +38,9 @@ const SearchSelect = ({ value, className, classNameSearchIcon, handleClickSearch
   }
 
   async function getAllCompanies() {
-    const response = await fetch(`/api/companies/search?q=${query}`)
+    const response = await fetch(`/api/companies/search?k=${query}`)
     const data = await response.json()
-    setCompanies(data.companydb)
+    setCompanies(data)
   }
 
   useEffect(() => {

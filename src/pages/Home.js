@@ -8,10 +8,10 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const menu = [
-  { name: 'About' , url: '#' },
-  { name: 'Privacy policy' , url: '#' },
-  { name: 'Terms of use', url: '#' },
-  { name: 'Rating and review guidelines', url: '#' }
+  { name: 'About' , url: '/info' },
+  { name: 'Privacy policy' , url: '/info' },
+  { name: 'Terms of use', url: '/info' },
+  { name: 'Rating and review guidelines', url: '/info' }
 ];
 
 const Home = () => {
@@ -78,7 +78,7 @@ const Home = () => {
           <div className='hero-content'>
             <div className="grid grid-cols-2 gap-20 justify-between mx-64">
               <div className="hidden xl:block explore-section">
-                <p className="mb-40 text-neutral-900 text-2xl leading-9 font-normal">Understanding workplace culture doesn’t have to be so hard</p>
+                <p className="mb-40 text-neutral-900 text-2xl leading-9 font-medium">Understanding workplace culture doesn’t have to be so hard</p>
                 <div className="hidden xl:block mt-10 xl:mt-0">
                   <div className="">
                     <p className="search-label">Find culture reviews from actual employees</p>

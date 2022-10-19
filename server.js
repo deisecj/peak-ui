@@ -5,6 +5,8 @@ const favicon = require('express-favicon');
 const path = require('path');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
+const apiURL = process.env.API_URL || "http://localhost:3001";
+const apiHost = process.env.API_HOST || "localhost";
 const port = process.env.PORT || 3000;
 const app = express();
 
@@ -12,10 +14,10 @@ app.use(
   '/api',
   createProxyMiddleware({
     pathRewrite: function (path, req) { return path.replace('/api/', '/') },
-    target: "https://happyjobs-api.herokuapp.com",
+    target: apiURL,
     headers: {
       Connection: 'keep-alive',
-      host: "happyjobs-api.herokuapp.com",
+      host: apiHost,
     },
     secure: false,
     logLevel: 'debug',

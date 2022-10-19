@@ -25,9 +25,7 @@ const ModalRating = ({ openModal, closeModal }) => {
   }
 
   const backStep = (step) => {
-
     setStep(step);
-    
   }
 
   const getEmail = (email) => {
@@ -51,8 +49,8 @@ const ModalRating = ({ openModal, closeModal }) => {
   }
 
   const populateCharacteristicsData = async () => {
-    const dataDB = await getCharacteristics();
-    const characteristicsData = dataDB.allCharacteristics;
+    const characteristicsData = await getCharacteristics();
+    //const characteristicsData = dataDB.allCharacteristics;
     setCharacteristics(characteristicsData);
   }
 

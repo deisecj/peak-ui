@@ -11,13 +11,14 @@ const ModalReviewDetails = ({ openModal, closeModal, company, characteristicRati
   const [reviewsData, setReviewsData] = useState([]);
   
   const getReviewsData = async () => {
-    const dataDB = await getAllReviews(company);
-    const reviews = dataDB.reviewDb;
+    const reviews = await getAllReviews(company);
+    //const reviews = dataDB;
     const reviewByCharacteristic = reviews.filter((item) => {
-      return item.characteristic_id === characteristicRating.characteristicID;   
+      return item.characteristic.id === characteristicRating.characteristicID;   
     })
     setReviewsData(reviewByCharacteristic);
   }
+    console.log('reviews db', reviewsData)
 
   const formatDate = (date) => {
     const createdAt = new Date(date);
@@ -87,13 +88,13 @@ const ModalReviewDetails = ({ openModal, closeModal, company, characteristicRati
                         </div>
                       </div>
                       
-                      {!reviewsData.find((review) => review.review_text && review.review_text !== '' ) && (
+                      {!reviewsData.find((review) => review.reviewText && review.reviewText !== '' ) && (
                          <div className='mt-10'>
                           <p className='text-neutral-800 leading-6 italic text-base'>Sorry, there are no written reviews for this workplace characteristic.  Care to leave a review for the community?</p>
                           </div>
                         )}
                      
-                      {reviewsData.find((review) => review.review_text && review.review_text !== '' ) && (
+                      {reviewsData.find((review) => review.reviewText && review.reviewText !== '' ) && (
                         <div className="mt-4 sm:mt-12 border-b border-neutral-300">
                           <p className='text-base text-neutral-700 italic leading-6 mb-1'>WRITTEN REVIEWS</p>
                         </div>
@@ -101,16 +102,16 @@ const ModalReviewDetails = ({ openModal, closeModal, company, characteristicRati
                       
                       {reviewsData.map(review => (
                          <div key={`mwr-${reviewsData.id}`}>
-                          {review.review_text && (
+                          {review.reviewText && (
                             <>
                               <div className="mt-4 mb-2 flex justify-between">
-                                <div className="text-base sm:text-lg text-neutral-500 leading-7">{formatDate(review.created_at)}</div>
+                                <div className="text-base sm:text-lg text-neutral-500 leading-7">{formatDate(review.createdAt)}</div>
                                 <Rating rating={review.rating} />
                               </div>
                               <div className='mb-8'>
-                               {review.job_position && review.job_location && (<p className='text-base sm:text-lg text-neutral-600 leading-7 mb-1'>{review.job_position} - {review.job_location}</p>)}
-                               {!review.job_position && (<p className='text-base sm:text-lg text-neutral-600 leading-7 mb-1'>{review.job_position} {review.job_location}</p>)}
-                                <p className='text-base sm:text-lg text-neutral-900 leading-7 border-t border-neutral-300 py-2'>{review.review_text}</p>
+                               {review.user.jobPosition && review.user.jobLocation && (<p className='text-base sm:text-lg text-neutral-600 leading-7 mb-1'>{review.user.jobPosition} - {review.user.jobLocation}</p>)}
+                               {!review.user.jobPosition && (<p className='text-base sm:text-lg text-neutral-600 leading-7 mb-1'>{review.user.jobPosition} {review.user.jobLocation}</p>)}
+                                <p className='text-base sm:text-lg text-neutral-900 leading-7 border-t border-neutral-300 py-2'>{review.reviewText}</p>
                               </div>
                             </>
                           )}                    
