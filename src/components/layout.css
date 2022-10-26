@@ -30,7 +30,7 @@
 }
 
 .subpage-rate-button {
-  @apply hidden sm:inline-flex justify-self-center px-4 py-2 h-10 mt-1 border border-transparent shadow-sm text-base font-semibold rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+  @apply hidden sm:inline-flex justify-self-center px-4 py-2 h-10 mt-1 border border-transparent shadow-sm text-base font-semibold rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500;
 }
 
 .subpage-rate-button-mobile{
