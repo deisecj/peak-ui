@@ -132,7 +132,7 @@ const Home = () => {
               <img src="./images/rate-employer.svg" alt="" className="contribute-image" />
               <div className="rate-section pt-10 xl:pt-0 xl:mt-16">
                 <p className="text-neutral-900 text-xl xl:text-2xl xl:leading-10">Contribute to a growing community</p>
-                <button onClick={handleOpenModal} type="button" className="mt-10 xl:mt-5 inline-flex justify-self-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <button onClick={handleOpenModal} type="button" className="mt-10 xl:mt-5 inline-flex justify-self-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500">
                   <StarIcon className="-ml-1 mr-2 h-5 w-5 bg-200" aria-hidden="true" />
                   Rate my employer
                 </button>
@@ -159,7 +159,7 @@ const Home = () => {
           {/* mobile */}
           <div className="contribute-section mobile sm:hidden block">
             <div className="information-section-item mobile">
-                <button onClick={handleOpenModal} type="button" className="inline-flex justify-self-center mb-5 px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <button onClick={handleOpenModal} type="button" className="inline-flex justify-self-center mb-5 px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500">
                   <StarIcon className="-ml-1 mr-2 h-5 w-5 bg-200" aria-hidden="true" />
                   Rate my employer
                 </button>
