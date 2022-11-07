@@ -1,3 +1,20 @@
+@media (min-width: 640px) { /* >= tablet */
+  .header-bg {
+    background-image: url("../../public/images/hero-left-blobs-cut.svg"), url("../../public/images/right-top-blobs-cut.svg");
+    background-position: left bottom, right top;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 39% 48%; /* 40% */
+  }
+
+  .hero-title {
+    word-spacing: 35px;
+  }
+
+  .hero-image-mobile {
+    @apply hidden;
+  }
+}
+
 @media (min-width: 1280px) { /* >= desktop */
   .hero-section {
     /*background-image: url("../../public/images/hero-bg.svg");
@@ -8,25 +25,9 @@
     background-image: url("../../public/images/hero-left-blobs-cut.svg"), url("../../public/images/right-top-blobs-cut.svg");
     background-position: left bottom, right top;
     background-repeat: no-repeat, no-repeat;
+    background-size: 30% 66%;
   }
   
-}
-
-@media (min-width: 640px) { /* >= tablet */
-  .header-bg {
-    background-image: url("../../public/images/hero-left-blobs-cut.svg"), url("../../public/images/right-top-blobs-cut.svg");
-    background-position: left bottom, right top;
-    background-repeat: no-repeat, no-repeat;
-    background-size: 40% 40%;
-  }
-
-  .hero-title {
-    word-spacing: 40px;
-  }
-
-  .hero-image-mobile {
-    @apply hidden;
-  }
 }
 
 @media (max-width: 639px) { /* mobile */
