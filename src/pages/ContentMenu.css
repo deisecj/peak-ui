@@ -1,4 +1,47 @@
-.color-title {
+@media (min-width: 640px) { /* >= tablet */
+  .infopage-bg {
+    background-image: url("../../public/images/hero-left-blobs-cut.svg"), url("../../public/images/right-top-blobs-cut.svg");
+    background-position: left bottom, right top;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 39% 48%; /* 40% */
+  }
+
+}
+
+@media (min-width: 1280px) { /* >= desktop */
+  .infopage-bg {
+    background-image: url("../../public/images/hero-left-blobs-cut.svg"), url("../../public/images/right-top-blobs-cut.svg");
+    background-position: left center, right top;
+    background-repeat: no-repeat, no-repeat;
+    background-size: 500px 450px;
+  }
+  
+}
+
+#content-page {
+  height: 100%;
+}
+
+.content-info {
+  height: 100%;
+}
+
+.infopage-bg {
+  @apply xl:max-w-screen-2xl mx-auto /*pt-3 sm:pt-6 xl:pt-10 pb-10 xl:pb-36 */
+}
+
+.infopage-content {
+  @apply max-w-3xl mx-auto
+  /*@apply mx-auto max-w-7xl py-12 px-4 sm:py-16 sm:px-6 lg:px-8 */
+}
+
+.infopage-content-title {
+  @apply pt-14 text-5xl font-semibold leading-10;
+  color: #4F46E5;
+}
+
+.infopage-content-subtitle {
+  @apply mt-4 mb-14 text-3xl leading-9;
   color: #4F46E5;
 }
 
@@ -6,6 +49,30 @@
   color: #64748B;
 }
 
-.bg-color {
-  color: #F7F8FF;
+.bg-header {
+  background: #EEF2FF;
+}
+
+.header-navbar {
+  background: #EEF2FF;
+}
+
+.navbar-section {
+  @apply max-w-screen-2xl mx-auto;
+}
+
+.header {
+  @apply pt-3 pb-1 mx-6 sm:ml-12 xl:ml-40 flex justify-between;
+}
+
+.logo {
+  @apply w-20 xl:w-24;
+}
+
+.infopage-menu-section {
+  @apply hidden;
+}
+
+.infopage-footer-section {
+  @apply flex justify-between mx-6 xl:mx-40 sm:mx-12 py-1.5;
 }
