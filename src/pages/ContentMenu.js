@@ -7,21 +7,26 @@ import About from '../components/contentPage/about';
 import PrivacyPolicy from '../components/contentPage/privacyPolicy';
 import TermsUse from '../components/contentPage/termsUse';
 import RateGuide from '../components/contentPage/ratingGuide';
+import { useSearchParams } from 'react-router-dom';
 
 const infos = [
   {
+    id: "1",
     title: "ABOUT",
     text: <About/>
   },
   {
+    id: "2",
     title: "PRIVACY POLICY",
     text: <PrivacyPolicy/>
   },
   {
+    id: "3",
     title: "TERMS OF USE",
     text: <TermsUse/>
   },
   {
+    id: "4",
     title: "RATING AND REVIEW GUIDELINES",
     text: <RateGuide/>
   }
@@ -34,7 +39,8 @@ function classNames(...classes) {
 const ContentMenu = () => {
 
   const navigate = useNavigate();
-
+  const [searchParams] = useSearchParams();
+  console.log(searchParams.get('q'));
   const handleClickLogo = () => {
     navigate('/');
   }
@@ -64,7 +70,7 @@ const ContentMenu = () => {
               </p>
               <dl className="px-9 rounded-2xl bg-white space-y-0 divide-y divide-gray-200">
                 {infos.map((info) => (
-                  <Disclosure as="div" key={info.title} className="py-6">
+                  <Disclosure as="div" defaultOpen={info.id === searchParams.get('q')} key={info.title} className="py-6">
                     {({ open }) => (
                       <>
                         <dt className="">
