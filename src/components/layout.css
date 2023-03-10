@@ -79,3 +79,10 @@
 .notification-request {
   @apply mt-5 bg-red-100 p-5 rounded-md font-semibold text-red-900 text-base
 }
+
+.layout-body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh; 
+  margin: 0; 
+}

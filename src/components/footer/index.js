@@ -1,16 +1,16 @@
 import './index.css';
 
-const Footer = ({ menuClassName, footerClassName }) => {
+const Footer = ({ menuClassName, footerClassName, layoutMenuFooter = true }) => {
   return (
     <div className="footer">
-      <div className={menuClassName}>
+     {layoutMenuFooter && <div className={menuClassName}>
         <ul>
           <a href='/info?q=1'><li className="menu-text">About us</li></a>
           <a href='/info?q=2'><li className="menu-text">Privacy policy</li></a>
           <a href='/info?q=3'><li className="menu-text">Terms of use</li></a>
           <a href='/info?q=4'><li className="menu-text">Rating and review guidelines</li></a>
         </ul>
-      </div>
+      </div>}
       <div className='footer-bg'>
         <div className="subpage-container">
           <div className={footerClassName}>

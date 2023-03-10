@@ -8,10 +8,10 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const menu = [
-  { name: 'About' , url: '/info' },
-  { name: 'Privacy policy' , url: '/info' },
-  { name: 'Terms of use', url: '/info' },
-  { name: 'Rating and review guidelines', url: '/info' }
+  { name: 'About' , url: '/info?q=1' },
+  { name: 'Privacy policy' , url: '/info?q=2' },
+  { name: 'Terms of use', url: '/info?q=3' },
+  { name: 'Rating and review guidelines', url: '/info?q=4' }
 ];
 
 const Home = () => {
@@ -59,7 +59,7 @@ const Home = () => {
         <Disclosure.Panel className="navbar-menu">
             <div className="navbar-menu-content">
             {menu.map(item => (
-               <Disclosure.Button key={`menu-${item.name}`} as="a" href={item.href} className="border-transparent hover:bg-indigo-100  block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+               <Disclosure.Button key={`menu-${item.name}`} as="a" href={item.url} className="border-transparent hover:bg-indigo-100  block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
                 {item.name}
               </Disclosure.Button>
               ))}

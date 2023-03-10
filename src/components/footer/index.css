@@ -17,7 +17,7 @@
 
 .footer-text {
   color: #334155;
-  @apply text-sm mt-3 xl:mt-4;
+  @apply text-xs xl:text-sm mt-3 xl:mt-4;
 }
 
 .footer-logo {
