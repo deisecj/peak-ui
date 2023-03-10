@@ -5,7 +5,7 @@ const PrivacyPolicy = () => {
      This Privacy Policy describes our policies on the collection, use, and disclosure of information about you in connection with your use of our services, including those offered through our websites, communications (e.g., emails, phone calls, and texts), and mobile applications (collectively, the “Service”).
      </p>
      <p className="text-normal text-neutral-700 font-semibold mb-2">Information we collect and how we use it</p>
-     <p>
+     <p className="text-normal text-neutral-700">
      We may collect, transmit, and store information about you in connection with your use of the Service, including any information you send to or through the Service. We use that information to provide the Service’s functionality, fulfill your requests, improve the Service’s quality, engage in research and analysis relating to the Service, personalize your experience, track usage of the Service, provide customer support, message you, back up our systems, allow for disaster recovery, enhance the security of the Service, and comply with legal obligations.
      </p>
      <p className="text-normal text-neutral-700 mt-6">

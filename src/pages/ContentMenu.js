@@ -7,21 +7,27 @@ import About from '../components/contentPage/about';
 import PrivacyPolicy from '../components/contentPage/privacyPolicy';
 import TermsUse from '../components/contentPage/termsUse';
 import RateGuide from '../components/contentPage/ratingGuide';
+import { useSearchParams } from 'react-router-dom';
+import Layout from '../components/layout';
 
 const infos = [
   {
+    id: "1",
     title: "ABOUT",
     text: <About/>
   },
   {
+    id: "2",
     title: "PRIVACY POLICY",
     text: <PrivacyPolicy/>
   },
   {
+    id: "3",
     title: "TERMS OF USE",
     text: <TermsUse/>
   },
   {
+    id: "4",
     title: "RATING AND REVIEW GUIDELINES",
     text: <RateGuide/>
   }
@@ -34,42 +40,29 @@ function classNames(...classes) {
 const ContentMenu = () => {
 
   const navigate = useNavigate();
-
+  const [searchParams] = useSearchParams();
   const handleClickLogo = () => {
     navigate('/');
   }
 
   return (
-    <div id="content-page" className="">
+    <Layout layoutTitle={false} layoutMenuFooter={false}>
+      <div id="content-page" className="">
       <div className="content-info">
-        <div className="bg-header">
-          <div className="header-navbar">
-            <div as="header" className="navbar-section">
-              <div className="header">
-                <img
-                  className="logo"
-                  src="/images/peak-logo.svg"
-                  alt=""
-                  onClick={handleClickLogo}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="infopage-bg">
+      {/*  <div className="infopage-bg"> */}
           <div className="infopage-content">
               <h1 className="infopage-content-title">PEAK</h1>
               <p className="infopage-content-subtitle">
                 Empowering job seekers with the knowledge to understand workplace culture and make better career decisions.
               </p>
-              <dl className="px-9 rounded-2xl bg-white space-y-0 divide-y divide-gray-200">
+              <dl className="infopage-content-items">
                 {infos.map((info) => (
-                  <Disclosure as="div" key={info.title} className="py-6">
+                  <Disclosure as="div" defaultOpen={info.id === searchParams.get('q')} key={info.title} className="py-4 sm:py-6">
                     {({ open }) => (
                       <>
                         <dt className="">
                           <Disclosure.Button className="flex w-full items-start justify-between text-left text-gray-400">
-                            <span className="text-2xl leading-8 color-name-content">{info.title}</span>
+                            <span className="infopage-content-title-items color-name-content">{info.title}</span>
                             <span className="ml-6 flex h-7 items-center">
                               <ChevronDownIcon
                                 className={classNames(open ? '-rotate-180' : 'rotate-0', 'h-6 w-6 transform')}
@@ -88,9 +81,11 @@ const ContentMenu = () => {
               </dl>
             </div>
        </div>
+       {/* <Footer menuClassName="infopage-menu-section" footerClassName="infopage-footer-section" /> */}
       </div>
-      <Footer menuClassName="infopage-menu-section" footerClassName="infopage-footer-section" />
-    </div>
+    {/*</div>*/}
+    </Layout>
+    
   )
 }
 

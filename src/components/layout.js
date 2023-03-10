@@ -9,13 +9,13 @@ import { useNavigate } from 'react-router-dom';
 
 
 const menu = [
-  { name: 'About' , url: '/info' },
-  { name: 'Privacy policy' , url: '/info' },
-  { name: 'Terms of use', url: '/info' },
-  { name: 'Rating and review guidelines', url: '/info' }
+  { name: 'About' , url: '/info?q=1' },
+  { name: 'Privacy policy' , url: '/info?q=2' },
+  { name: 'Terms of use', url: '/info?q=3' },
+  { name: 'Rating and review guidelines', url: '/info?q=4' }
 ];
 
-const Layout = ({ children }) => {
+const Layout = ({ children, layoutTitle = true, layoutMenuFooter=true }) => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const inputSearchRef = useRef();
@@ -51,7 +51,7 @@ const Layout = ({ children }) => {
   }
 
   return (
-    <div>
+    <div className="layout-body">
       <div className="subpage-bg-header">
         <div className="subpage-container">
           <Disclosure className="bg-gray-800">
@@ -95,7 +95,7 @@ const Layout = ({ children }) => {
                 <Disclosure.Panel className="subpage-navbar-menu">
                   <div className="subpage-navbar-menu-content">
                     {menu.map(item => (
-                      <Disclosure.Button key={`menu-${item.name}`} as="a" href={item.href} className="border-transparent hover:bg-indigo-100 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                      <Disclosure.Button key={`menu-${item.name}`} as="a" href={item.url} className="border-transparent hover:bg-indigo-100 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
                         {item.name}
                       </Disclosure.Button>
                     ))}
@@ -109,19 +109,17 @@ const Layout = ({ children }) => {
       </div>
       {isOpen && <ModalRating openModal={isOpen} closeModal={() => setIsOpen(false)}/>}
       <div className="subpage-container">
-        <div className="subpage-title">
-          <div className="">
-            <h1>REVIEWS.</h1>
-          </div>
-          <div>
-            <h1 className="subpage-subtitle">REAL. HONEST. VERIFIED.</h1>
-          </div>
-        </div>
+        {layoutTitle && <div className="subpage-title">
+            <div>
+              <h1>REVIEWS.</h1>
+            </div>
+            <div>
+              <h1 className="subpage-subtitle">REAL. HONEST. VERIFIED.</h1>
+            </div>
+          </div>}
         <main className="subpage-main">{children}</main>
       </div>
-      <div>
-        <Footer menuClassName="subpage-menu-section" footerClassName="subpage-footer" />    
-      </div> 
+      <Footer layoutMenuFooter={layoutMenuFooter} menuClassName="subpage-menu-section" footerClassName="subpage-footer" /> 
     </div>
   )
 }
