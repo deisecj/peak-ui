@@ -59,7 +59,7 @@ const ModalCulturaRatings = ({ characteristics, initialValues, onCompleteStep, o
       <div className="mt-14">  
           <h4 className="mb-1 text-2xl font-semibold leading-8 text-neutral-900">Cultural workplace characteristics</h4>   
           <p className="mb-5 text-base font-normal leading-6 text-neutral-600">Rate the characteristics that apply to your situation or that you feel comfortable to rate.  Written comments are also optional.</p> 
-          <p className="text-sm font-normal leading-5 text-neutral-500">Don’t forget, it’s completely anonymous, but please be respectful and follow our community <ins className="text-blue-700">guidelines</ins>.</p>
+          <p className="text-sm font-normal leading-5 text-neutral-500">Don’t forget, it’s completely anonymous, but please be respectful and follow our community <a target="_blank" href="/info" className="text-blue-700">guidelines</a>.</p>
       </div>
       {characteristics.map(characteristic => (
         <div key={`mw-${characteristic.id}`} className="border-t border-neutral-300 mt-14">
