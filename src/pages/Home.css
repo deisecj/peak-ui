@@ -3,7 +3,7 @@
     background-image: url("../../public/images/hero-left-blobs-cut.svg"), url("../../public/images/right-top-blobs-cut.svg");
     background-position: left bottom, right top;
     background-repeat: no-repeat, no-repeat;
-    background-size: 39% 48%; /* 40% */
+    background-size: 47% 50%; /* 40% */
   }
 
   .hero-title {
@@ -25,7 +25,7 @@
     background-image: url("../../public/images/hero-left-blobs-cut.svg"), url("../../public/images/right-top-blobs-cut.svg");
     background-position: left bottom, right top;
     background-repeat: no-repeat, no-repeat;
-    background-size: 30% 66%;
+    background-size: 35% 66%;
   }
   
 }
